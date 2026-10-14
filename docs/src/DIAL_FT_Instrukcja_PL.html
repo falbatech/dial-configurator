@@ -1,0 +1,133 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8">
+<title>DIAL FT - Instrukcja obsługi</title><style>
+@page { size: A4; margin: 16mm 15mm 16mm 15mm; }
+@page :first { margin: 0; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif; color: #1d1d1f; font-size: 10.2pt; line-height: 1.45; margin: 0; }
+.cover { height: 297mm; width: 210mm; position: relative; background: #0f1410; color: #fff; overflow: hidden; page-break-after: always; }
+.cover img.photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .78; }
+.cover .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,16,10,.92) 0%, rgba(10,16,10,.35) 38%, rgba(10,16,10,.15) 60%, rgba(10,16,10,.9) 100%); }
+.cover .top { position: absolute; top: 22mm; left: 18mm; right: 18mm; }
+.cover .brand { font-size: 12pt; letter-spacing: 3px; color: #8fca8f; text-transform: uppercase; }
+.cover h1 { font-size: 46pt; margin: 4mm 0 2mm; letter-spacing: 1px; }
+.cover .subtitle { font-size: 16pt; color: #d9e8d9; }
+.cover .bottom { position: absolute; bottom: 18mm; left: 18mm; right: 18mm; display: flex; justify-content: space-between; align-items: end; font-size: 10pt; color: #cfdccf; }
+.cover .logo { background: #fff; border-radius: 10px; padding: 3mm 4mm; height: 24mm; }
+h2 { font-size: 16pt; color: #2f5f2f; border-bottom: 2px solid #518751; padding-bottom: 1.5mm; margin: 0 0 3.5mm; page-break-after: avoid; }
+h3 { font-size: 11.5pt; margin: 4.5mm 0 1.5mm; color: #1d1d1f; page-break-after: avoid; }
+section { margin-bottom: 7mm; }
+section.break { page-break-before: always; }
+p { margin: 0 0 2.4mm; }
+ul, ol { margin: 0 0 2.6mm; padding-left: 5.5mm; }
+li { margin: .6mm 0; }
+table { width: 100%; border-collapse: collapse; margin: 1.5mm 0 3.5mm; font-size: 9.4pt; page-break-inside: auto; }
+tr { page-break-inside: avoid; }
+th { background: #eaf3ea; color: #2f5f2f; text-align: left; font-weight: 600; padding: 1.6mm 2mm; border-bottom: 1px solid #b9d6b9; }
+td { padding: 1.4mm 2mm; border-bottom: 1px solid #e5e5e7; vertical-align: top; }
+td.k { font-weight: 600; white-space: nowrap; width: 26mm; }
+.key { display: inline-block; font-family: "SF Mono", Menlo, monospace; font-size: 8.4pt; background: #f2f2f4; border: 1px solid #dcdce0; border-radius: 3px; padding: 0 1.2mm; }
+.note { background: #eef6ee; border-left: 3px solid #518751; padding: 2.2mm 3mm; margin: 2mm 0 3.5mm; border-radius: 0 4px 4px 0; }
+.warn { background: #fff7e6; border-left: 3px solid #e0a020; padding: 2.2mm 3mm; margin: 2mm 0 3.5mm; border-radius: 0 4px 4px 0; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; align-items: start; }
+.figure img { width: 100%; border-radius: 6px; }
+.figure .cap { font-size: 8.6pt; color: #6e6e73; margin-top: 1mm; }
+.controls td.k { width: 30mm; }
+.toc { columns: 2; column-gap: 8mm; font-size: 10pt; }
+.toc div { margin: .8mm 0; }
+.small { font-size: 8.8pt; color: #6e6e73; }
+</style></head><body><div class="cover"><img class="photo" src="cover.jpg"><div class="shade"></div>
+<div class="top"><div class="brand">FalbaTech</div><h1>DIAL FT</h1>
+<div class="subtitle">Instrukcja obsługi &middot; DFTv1.3</div></div>
+<div class="bottom"><div>Inteligentne pokrętło z okrągłym ekranem dotykowym<br>do pracy twórczej, montażu i codziennej pracy.<br><br>falbatech.click</div>
+<img class="logo" src="logo.png"></div></div>
+<section><h2>Spis treści</h2><div class='toc'><div>1. Pierwsze kroki</div><div>2. Sterowanie</div><div>3. Ekran HOME</div><div>4. Profile</div><div>5. DaVinci Resolve: COLOR</div><div>6. Smart Touch Ring i Smart Scroll</div><div>7. Pomodoro, przerwy i zegar</div><div>8. Pierścień RGB</div><div>9. Ustawienia</div><div>10. Konfigurator i własne profile</div><div>11. Aktualizacja oprogramowania</div><div>12. DIAL FT Helper (opcjonalny, macOS)</div><div>13. Rozwiązywanie problemów</div><div>14. Dane techniczne i bezpieczeństwo</div></div></section>
+<section><h2>1. Pierwsze kroki</h2>
+<div class="grid2"><div>
+<ol>
+<li>Podłącz DIAL FT kablem USB-C do komputera (macOS, Windows lub Linux). Nie trzeba instalować sterowników.</li>
+<li>Po logo FalbaTech pojawi się krótki samouczek: wykonaj kolejno obrót, klik, przytrzymanie, przesunięcie palcem i tapnięcie.</li>
+<li>Otwórz <b>Settings → Host OS</b> i wybierz swój system (macOS albo Windows). Od tego zależy, czy skróty używają Cmd czy Ctrl.</li>
+<li>Wybierz aplikację na ekranie HOME obrotem i otwórz ją klikiem albo tapnięciem.</li>
+</ol>
+<div class="note">Wszystkie profile działają od razu, bez żadnego programu na komputerze. DIAL FT jest dla komputera klawiaturą i myszą USB. Opcjonalny DIAL FT Helper dodaje okładki Spotify, automatyczną zmianę profilu i zegar.</div>
+</div><div class="figure"><img src="home.jpg"><div class="cap">Ekran HOME, motyw Color.</div></div></div>
+</section>
+<section><h2>2. Sterowanie</h2><table class='controls'><tr><td class='k'>Obrót</td><td>wybór ikony / akcja profilu (np. głośność, klatka) / wybór wiersza w ustawieniach</td></tr><tr><td class='k'>Klik</td><td>otwiera aplikację; w profilu zmienia tryb (np. FRAME → ZOOM); w ustawieniach zmienia wartość</td></tr><tr><td class='k'>Przytrzymanie</td><td>powrót na pierwszy ekran HOME (Pomodoro i profil zostają)</td></tr><tr><td class='k'>Przesunięcie palcem</td><td>lewo / prawo: zmiana strony HOME; w profilu w prawo: powrót na HOME; Ustawienia → RGB → Touch ring</td></tr><tr><td class='k'>Tapnięcie</td><td>otwiera ikonę; w profilu akcja tap (np. wycisz, odtwarzaj); przyciski na ekranie (LIKE, CAM, RESET)</td></tr><tr><td class='k'>Obrzeże ekranu</td><td>Smart Touch Ring: przesuwaj palec po krawędzi ekranu jak po pierścieniu - dokładna regulacja</td></tr></table><p class='small'>Ekran przyciemnia się po 45 s bezczynności (albo pokazuje zegar). Pierwszy obrót, klik lub dotyk tylko go budzi.</p></section>
+<section><h2>3. Ekran HOME</h2><p>Ikony są ułożone na stronach. Kropki na dole pokazują bieżącą stronę. Obrót przechodzi przez wszystkie ikony na wszystkich stronach.</p><table><tr><td class='k'>EVERYDAY</td><td>Pomodoro, Smart Scroll, Volume, Media, Spotify, Meetings</td></tr><tr><td class='k'>CREATIVE</td><td>DaVinci, Premiere, Final Cut, Photoshop, Lightroom, Pixelmator</td></tr><tr><td class='k'>DESIGN</td><td>Figma, Blender, Fusion 360, KiCad</td></tr><tr><td class='k'>SYSTEM</td><td>System, Settings</td></tr><tr><td class='k'>CUSTOM / CUSTOM 2</td><td>Twoje profile z konfiguratora (do 12)</td></tr></table><p>Niepotrzebne ikony ukryjesz w konfiguratorze (rozdział 10). Kropka przy ikonie oznacza aktywny profil.</p></section>
+<section><h2>4. Profile</h2><p>W profilu klik zmienia tryb (kropki pod nazwą pokazują, który). Obrót wykonuje akcję trybu, tapnięcie w środek - akcję tap. <span class="key">Mod</span> = Ctrl w Windows, Cmd w macOS (Settings → Host OS).</p><table><tr><th>Profil</th><th>Tryb</th><th>Obrót</th></tr><tr><td class='k' rowspan='2'>Volume</td><td>VOLUME</td><td>głośność systemu</td></tr><tr><td><i>tap</i></td><td>wycisz</td></tr><tr><td class='k' rowspan='3'>Smart Scroll</td><td>VERTICAL</td><td>przewijanie góra / dół</td></tr><tr><td>HORIZONTAL</td><td>przewijanie lewo / prawo</td></tr><tr><td><i>tap</i></td><td>odwróć kierunek</td></tr><tr><td class='k' rowspan='3'>Media</td><td>VOLUME</td><td>głośność</td></tr><tr><td>TRACK</td><td>poprzedni / następny utwór</td></tr><tr><td><i>tap</i></td><td>odtwarzaj / pauza</td></tr><tr><td class='k' rowspan='4'>Spotify</td><td>VOLUME</td><td>głośność</td></tr><tr><td>TRACK</td><td>poprzedni / następny utwór</td></tr><tr><td>SEEK</td><td>przewijanie utworu (<span class="key">Shift</span>+<span class="key">←/→</span>)</td></tr><tr><td><i>tap</i></td><td>odtwarzaj / pauza; przycisk LIKE = polub (<span class="key">Alt</span>+<span class="key">Shift</span>+<span class="key">B</span>)</td></tr><tr><td class='k' rowspan='2'>Meetings</td><td>ZOOM / TEAMS / MEET</td><td>głośność; tryb wybiera aplikację</td></tr><tr><td><i>tap</i></td><td>mikrofon wł./wył. (pierścień czerwony = wyciszony); przycisk CAM = kamera</td></tr><tr><td class='k' rowspan='6'>DaVinci Resolve</td><td>FRAME</td><td>klatka (<span class="key">←/→</span>)</td></tr><tr><td>ZOOM</td><td>powiększenie osi czasu (<span class="key">Mod</span>+<span class="key">=/-</span>)</td></tr><tr><td>SCROLL</td><td>przewijanie osi czasu</td></tr><tr><td>JKL</td><td><span class="key">J</span> / <span class="key">L</span></td></tr><tr><td>COLOR</td><td>najedź kursorem na wartość na stronie Color i kręć</td></tr><tr><td><i>tap</i></td><td>odtwarzaj / pauza (<span class="key">Space</span>); obrzeże ekranu = jog klatek</td></tr><tr><td class='k' rowspan='5'>Premiere Pro</td><td>FRAME</td><td>klatka</td></tr><tr><td>ZOOM</td><td>powiększenie osi czasu (<span class="key">=</span> / <span class="key">-</span>)</td></tr><tr><td>EDIT</td><td>poprzedni / następny punkt cięcia</td></tr><tr><td>JKL</td><td><span class="key">J</span> / <span class="key">L</span></td></tr><tr><td><i>tap</i></td><td>odtwarzaj / pauza; obrzeże = jog</td></tr><tr><td class='k' rowspan='5'>Final Cut Pro</td><td>FRAME</td><td>klatka</td></tr><tr><td>ZOOM</td><td>powiększenie (<span class="key">Cmd</span>+<span class="key">=/-</span>)</td></tr><tr><td>EDIT</td><td>poprzedni / następny punkt cięcia</td></tr><tr><td>JKL</td><td><span class="key">J</span> / <span class="key">L</span></td></tr><tr><td><i>tap</i></td><td>odtwarzaj / pauza; obrzeże = jog</td></tr><tr><td class='k' rowspan='6'>Photoshop</td><td>BRUSH</td><td>rozmiar pędzla (<span class="key">[</span> / <span class="key">]</span>)</td></tr><tr><td>HARDNESS</td><td>twardość pędzla</td></tr><tr><td>ZOOM</td><td>powiększenie</td></tr><tr><td>HISTORY</td><td>cofnij / ponów</td></tr><tr><td>LAYER</td><td>warstwa niżej / wyżej</td></tr><tr><td><i>tap</i></td><td>dopasuj do ekranu (<span class="key">Mod</span>+<span class="key">0</span>)</td></tr><tr><td class='k' rowspan='5'>Lightroom Classic</td><td>ADJUST</td><td>wybrany suwak - / + (szybki obrót = duże kroki)</td></tr><tr><td>SLIDER</td><td>poprzedni / następny suwak (<span class="key">,</span> / <span class="key">.</span>)</td></tr><tr><td>PHOTO</td><td>poprzednie / następne zdjęcie</td></tr><tr><td>ZOOM</td><td>powiększenie</td></tr><tr><td><i>tap</i></td><td>przed / po (<span class="key">\</span>)</td></tr><tr><td class='k' rowspan='7'>Pixelmator Pro</td><td>BRUSH</td><td>rozmiar pędzla</td></tr><tr><td>HARDNESS</td><td>miękkość / twardość</td></tr><tr><td>OPACITY</td><td>krycie 10-100%</td></tr><tr><td>ZOOM</td><td>powiększenie</td></tr><tr><td>HISTORY</td><td>cofnij / ponów</td></tr><tr><td>LAYER</td><td>poprzednia / następna warstwa</td></tr><tr><td><i>tap</i></td><td>dopasuj do okna (<span class="key">Cmd</span>+<span class="key">0</span>)</td></tr><tr><td class='k' rowspan='5'>Figma</td><td>ZOOM</td><td>powiększenie</td></tr><tr><td>OPACITY</td><td>krycie warstwy 10-100%</td></tr><tr><td>LAYER</td><td>poprzednia / następna warstwa (<span class="key">Shift</span>+<span class="key">Tab</span> / <span class="key">Tab</span>)</td></tr><tr><td>HISTORY</td><td>cofnij / ponów</td></tr><tr><td><i>tap</i></td><td>dopasuj (<span class="key">Shift</span>+<span class="key">1</span>)</td></tr><tr><td class='k' rowspan='6'>Blender</td><td>ZOOM</td><td>powiększenie widoku</td></tr><tr><td>ORBIT</td><td>obrót widoku lewo / prawo</td></tr><tr><td>TILT</td><td>obrót widoku góra / dół</td></tr><tr><td>FRAME</td><td>klatka</td></tr><tr><td>HISTORY</td><td>cofnij / ponów</td></tr><tr><td><i>tap</i></td><td>pokaż wszystko (<span class="key">Home</span>); kursor nad widokiem 3D</td></tr><tr><td class='k' rowspan='5'>Fusion 360</td><td>ZOOM</td><td>powiększenie</td></tr><tr><td>ORBIT</td><td>obrót (jak Shift + środkowy przycisk)</td></tr><tr><td>PAN</td><td>przesuwanie (jak środkowy przycisk)</td></tr><tr><td>HISTORY</td><td>cofnij / ponów</td></tr><tr><td><i>tap</i></td><td>dopasuj (<span class="key">F6</span>); kursor nad widokiem</td></tr><tr><td class='k' rowspan='6'>KiCad</td><td>ZOOM</td><td>powiększenie</td></tr><tr><td>PAN X</td><td>przesuwanie lewo / prawo</td></tr><tr><td>PAN Y</td><td>przesuwanie góra / dół</td></tr><tr><td>LAYER</td><td>warstwa <span class="key"></span>+<span class="key"></span> / <span class="key">-</span></td></tr><tr><td>ROTATE</td><td>obrót elementu (<span class="key">R</span> / <span class="key">Shift</span>+<span class="key">R</span>)</td></tr><tr><td><i>tap</i></td><td><span class="key">Esc</span></td></tr><tr><td class='k' rowspan='5'>System</td><td>APPS</td><td>przełączanie aplikacji</td></tr><tr><td>DESKTOP</td><td>poprzedni / następny pulpit</td></tr><tr><td>BRIGHTNESS</td><td>jasność ekranu*</td></tr><tr><td>UNDO</td><td>cofnij / ponów</td></tr><tr><td><i>tap</i></td><td>Mission Control / Widok zadań</td></tr></table><p class='small'>* Klawisze jasności działają, jeśli system je obsługuje (zwykle wbudowany ekran laptopa). Final Cut Pro i Pixelmator Pro są tylko na macOS. W Blenderze i Fusion 360 trzymaj kursor nad widokiem 3D.</p><h3>Spotify</h3><p>Utwory, głośność i odtwarzanie działają klawiszami multimedialnymi, także gdy Spotify jest w tle. SEEK i LIKE wymagają aktywnego okna Spotify. Z DIAL FT Helper ekran pokazuje okładkę, tytuł, wykonawcę i postęp utworu.</p><h3>Meetings</h3><p>Klikiem wybierz aplikację: ZOOM, TEAMS albo MEET (Google Meet w przeglądarce). Tap wycisza mikrofon - pierścień RGB pulsuje wtedy na czerwono. Przycisk CAM włącza / wyłącza kamerę. DIAL zapamiętuje stan po swojej stronie; jeśli wyciszysz mikrofon myszą, tapnij dwa razy, by stan znów się zgadzał.</p></section>
+<section><h2>5. DaVinci Resolve: COLOR</h2>
+<p>Tryb COLOR w profilu DaVinci steruje prawdziwymi kontrolkami strony Color - bez żadnego programu, także w darmowym DaVinci Resolve.</p>
+<ol><li>W profilu DaVinci klikaj, aż pojawi się <b>HOVER + TURN</b>.</li>
+<li>Najedź myszą na wartość, np. Temp, Tint, Contrast, Saturation albo prążkowany pasek pod kołem Lift / Gamma / Gain / Offset.</li>
+<li>Kręć pokrętłem. Tapnięcie zmienia krok: FINE / NORMAL / COARSE. Obrzeże ekranu daje najmniejsze kroki.</li></ol>
+<div class="warn">Obrót działa jak przeciąganie myszą. Kursor musi stać nad wartością - nad innym elementem (np. węzłem) przesunąłby go.</div></section>
+<section><h2>6. Smart Touch Ring i Smart Scroll</h2>
+<p><b>Smart Touch Ring</b>: przesuwaj palec po krawędzi ekranu. Działa jak drugie, dokładniejsze pokrętło. Ustawienia dla każdego profilu osobno: <b>Settings → Touch ring</b> (albo przesuń w lewo z ekranu RGB ring).</p>
+<table><tr><td class="k">Touch mode</td><td>SMOOTH (płynnie) albo STEP (kroki)</td></tr>
+<tr><td class="k">Sensitivity</td><td>LOW / MEDIUM / HIGH</td></tr>
+<tr><td class="k">Inertia</td><td>bezwładność po machnięciu: OFF / LOW / MEDIUM / HIGH</td></tr>
+<tr><td class="k">Direction</td><td>NORMAL / REVERSE</td></tr>
+<tr><td class="k">Adaptive</td><td>szybszy ruch = większe zmiany</td></tr>
+<tr><td class="k">Touch ring</td><td>włącz / wyłącz w tym profilu</td></tr></table>
+<p><b>Smart Scroll</b>: przewijanie z przyspieszeniem (SMART) albo stałe (PRECISION), bezwładność i oś pionowa / pozioma (klik). Zmiana kierunku obrotu od razu zatrzymuje bezwładność; dotknięcie ekranu też.</p></section>
+<section><h2>7. Pomodoro, przerwy i zegar</h2>
+<p><b>Pomodoro</b>: obrót ustawia czas skupienia (gdy licznik stoi), klik lub tap - start / pauza, RESET - od nowa. Przerwę ustawisz w Settings → Pomo break. Po zakończeniu ekran mruga, a pierścień błyska na biało. Licznik działa dalej, gdy używasz innych profili.</p>
+<p><b>Statystyki</b>: liczba sesji dzisiaj i w ostatnich 7 dniach (gdy DIAL zna godzinę - patrz niżej).</p>
+<p><b>Przypomnienie o przerwie</b>: po 50 minutach pracy bez 5 minut przerwy DIAL pokazuje „TIME TO STAND UP”. Dowolny ruch je zamyka. Wyłączysz w Settings → Stand-up.</p>
+<p><b>Tarcza zegarka</b>: w spoczynku DIAL pokazuje godzinę, datę, sekundnik, Pomodoro i tytuł utworu. DIAL nie ma zegara z baterią - godzinę ustawia konfigurator (przy połączeniu) albo DIAL FT Helper (na stałe). Bez tego ekran po prostu się przyciemnia.</p></section>
+<section><h2>8. Pierścień RGB</h2>
+<table><tr><td class="k">Mode</td><td>Off, Follow (światło podąża za pokrętłem), Ambient, Breathe, Rainbow</td></tr>
+<tr><td class="k">Color</td><td>kolor motywu, 36 odcieni albo biały - zapamiętywany osobno dla każdego motywu</td></tr>
+<tr><td class="k">Brightness</td><td>20-100%</td></tr>
+<tr><td class="k">Pomodoro</td><td>pierścień pokazuje postęp Pomodoro</td></tr>
+<tr><td class="k">Action flash</td><td>krótki błysk przy akcjach</td></tr>
+<tr><td class="k">Idle off</td><td>gaśnie razem z ekranem</td></tr>
+<tr><td class="k">Direction</td><td>kierunek światła względem pokrętła</td></tr></table>
+<p>Czerwony puls oznacza wyciszony mikrofon w profilu Meetings.</p></section>
+<section><h2>9. Ustawienia</h2><table><tr><td class='k'>Theme</td><td>motyw kolorów: Ocean, Amber, Mint, Violet, Rose, Mono, Color (każda aplikacja w swoim kolorze), FalbaTech</td></tr><tr><td class='k'>Host OS</td><td>Windows (skróty z Ctrl) albo macOS (skróty z Cmd) - ustaw zgodnie z komputerem</td></tr><tr><td class='k'>Scroll dir</td><td>kierunek przewijania</td></tr><tr><td class='k'>Brightness</td><td>jasność ekranu DIAL</td></tr><tr><td class='k'>RGB ring</td><td>szybkie włączanie / wyłączanie pierścienia RGB</td></tr><tr><td class='k'>Pomo break</td><td>długość przerwy Pomodoro: 3 / 5 / 10 / 15 min</td></tr><tr><td class='k'>Touch jog ... Jog dir</td><td>jog obrzeżem ekranu w DaVinci: włącz, szybkość, bezwładność, kierunek</td></tr><tr><td class='k'>Touch ring ></td><td>Smart Touch Ring - ustawienia dla każdego profilu (patrz niżej)</td></tr><tr><td class='k'>Auto profile</td><td>automatyczna zmiana profilu z DIAL FT Helper</td></tr><tr><td class='k'>Clock face</td><td>tarcza zegarka w spoczynku</td></tr><tr><td class='k'>Stand-up</td><td>przypomnienie o przerwie po 50 min pracy</td></tr><tr><td class='k'>Tutorial ></td><td>uruchamia ponownie samouczek</td></tr><tr><td class='k'>Version</td><td>wersja firmware</td></tr></table><p class='small'>Zmiany zapisują się automatycznie w pamięci DIAL.</p></section>
+<section><h2>10. Konfigurator i własne profile</h2>
+<p>Konfigurator to strona <b>falbatech.click/dial-ft</b>. Działa w przeglądarce Google Chrome albo Microsoft Edge na komputerze - nic nie trzeba instalować. Wszystko zapisuje się w DIAL, więc działa potem na każdym komputerze.</p>
+<ol><li>Podłącz DIAL FT i kliknij <b>Connect DIAL FT</b>. W okienku wybierz DIAL FT.</li>
+<li><b>General</b>: motyw, system, jasność, pierścień RGB, Pomodoro, automatyczny profil, zegar, przypomnienie.</li>
+<li><b>Home screen</b>: odznacz aplikacje, których nie używasz.</li>
+<li><b>Twoje profile</b>: do 12 profili dla dowolnych programów, z gotowych szablonów albo od zera.</li>
+<li>Kliknij <b>Save to DIAL FT</b>.</li></ol>
+<h3>Własny profil</h3>
+<ul><li>Nazwa, ikona i kolor (widoczny w motywie Color). Szablon („Zacznij od szablonu”) wypełnia profil gotowymi skrótami, np. dla przeglądarki, DaVinci, Premiere, Photoshopa, Lightrooma, Figmy lub VS Code.</li>
+<li>Do 4 trybów. Każdy tryb ma 4 akcje: <b>obrót w lewo</b>, <b>obrót w prawo</b>, <b>tapnięcie</b> i <b>klik pokrętła</b> (pusty klik = następny tryb).</li>
+<li>Każda akcja może być <b>makrem</b> - do 6 kroków po kolei: skrót klawiszowy (kliknij pole i naciśnij skrót), klawisz multimedialny, kółko myszy, pauza, wpisanie tekstu, następny / poprzedni tryb.</li>
+<li>Dwa teksty na profil (do 32 znaków, bez polskich znaków) do kroku „Wpisz tekst”, np. podpis lub adres e-mail.</li>
+<li><b>Program</b> (opcjonalnie): identyfikator aplikacji do automatycznego profilu, np. com.apple.Safari (macOS) albo chrome.exe (Windows).</li>
+<li><b>Eksportuj / Importuj profile</b>: zapis wszystkich profili do pliku i wczytanie z pliku - kopia zapasowa lub wymiana profili.</li></ul>
+<div class="note">„Ctrl/Cmd” w skrótach jest wysyłane jako Cmd na Macu i Ctrl w Windows - według ustawienia Host OS. Dzięki temu jeden profil działa na obu systemach.</div></section>
+<section><h2>11. Aktualizacja oprogramowania</h2>
+<p>Aktualizacje instalujesz na tej samej stronie (falbatech.click/dial-ft), w sekcji Firmware update. Ustawienia i własne profile zostają.</p>
+<ol><li>Kliknij <b>1. Prepare</b> i wybierz DIAL FT. Ekran gaśnie - DIAL jest w trybie aktualizacji.</li>
+<li>Kliknij <b>2. Install update</b> i wybierz port „USB JTAG/serial debug unit”.</li>
+<li>Po komunikacie o zakończeniu odłącz i podłącz DIAL FT.</li></ol>
+<p class="small">Jeśli DIAL nie przechodzi w tryb aktualizacji: odłącz kabel, przytrzymaj przycisk BOOT z tyłu płytki, podłącz kabel, puść przycisk i zacznij od kroku 2.</p></section>
+<section><h2>12. DIAL FT Helper (opcjonalny, macOS)</h2>
+<p>Mały program działający w tle. Pobierzesz go z konfiguratora. Dodaje:</p>
+<ul><li>okładkę, tytuł, wykonawcę i postęp utworu Spotify na ekranie DIAL,</li>
+<li>automatyczną zmianę profilu, gdy przełączasz aplikacje (DaVinci, Premiere, Final Cut, Photoshop, Lightroom, Pixelmator, Spotify, Zoom, Teams, Figma, Blender, Fusion 360, KiCad oraz Twoje profile),</li>
+<li>godzinę dla tarczy zegarka i statystyk Pomodoro.</li></ul>
+<p>Instalacja: rozpakuj archiwum i uruchom <span class="key">install_mac.sh</span> w Terminalu. Helper startuje sam po zalogowaniu. Przy pierwszym utworze macOS zapyta o zgodę na sterowanie Spotify - kliknij Zezwól. Odinstalowanie: <span class="key">install_mac.sh --uninstall</span>.</p>
+<p class="small">Automatyczny profil nie przełącza, gdy jesteś w Ustawieniach lub w Pomodoro. Wyłączysz go w Settings → Auto profile.</p></section>
+<section><h2>13. Rozwiązywanie problemów</h2><table><tr><th>Problem</th><th>Rozwiązanie</th></tr><tr><td>Skróty nie działają na Macu (albo w Windows)</td><td>Ustaw Settings → Host OS zgodnie z komputerem.</td></tr><tr><td>Przewijanie w złą stronę</td><td>Settings → Scroll dir albo tapnięcie w profilu Smart Scroll.</td></tr><tr><td>Brak zegara w spoczynku</td><td>Połącz konfigurator albo zainstaluj DIAL FT Helper (DIAL nie ma zegara z baterią).</td></tr><tr><td>COLOR przesuwa coś innego</td><td>Kursor musi stać nad wartością w Resolve, nie nad węzłem ani klipem.</td></tr><tr><td>Nie widać okładki Spotify</td><td>Uruchom DIAL FT Helper i zezwól mu na sterowanie Spotify (Ustawienia systemowe → Prywatność → Automatyzacja).</td></tr><tr><td>Konfigurator nie widzi DIAL</td><td>Użyj Chrome lub Edge, zamknij inne programy korzystające z portu DIAL, podłącz kabel ponownie.</td></tr><tr><td>DIAL nie reaguje</td><td>Odłącz i podłącz kabel USB. Ustawienia nie zostaną utracone.</td></tr></table></section>
+<section><h2>14. Dane techniczne i bezpieczeństwo</h2>
+<div class="grid2"><table>
+<tr><td class="k">Ekran</td><td>okrągły 1,28″, 240×240, dotykowy</td></tr>
+<tr><td class="k">Sterowanie</td><td>pokrętło z klikiem, ekran dotykowy</td></tr>
+<tr><td class="k">Podświetlenie</td><td>pierścień 5 diod RGB</td></tr>
+<tr><td class="k">Procesor</td><td>ESP32-S3</td></tr>
+<tr><td class="k">Złącze</td><td>USB-C, zasilanie i dane</td></tr>
+<tr><td class="k">Systemy</td><td>macOS, Windows, Linux</td></tr>
+<tr><td class="k">Obudowa</td><td>podstawa z drewna, metalowy pierścień</td></tr>
+<tr><td class="k">Firmware</td><td>DFTv1.3</td></tr></table>
+<div><ul>
+<li>Używaj tylko w pomieszczeniach, chroń przed wodą i wilgocią.</li>
+<li>Drewno czyść suchą lub lekko wilgotną ściereczką, ekran - miękką ściereczką bez środków chemicznych.</li>
+<li>Nie otwieraj obudowy i nie zginaj kabla przy wtyczce.</li>
+<li>Zużytego urządzenia nie wyrzucaj z odpadami domowymi - oddaj je do punktu zbiórki elektroniki.</li>
+</ul><p class="small">FalbaTech &middot; falbatech.click</p></div></div></section></body></html>

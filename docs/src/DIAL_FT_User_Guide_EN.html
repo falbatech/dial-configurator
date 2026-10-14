@@ -1,0 +1,133 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>DIAL FT - User Guide</title><style>
+@page { size: A4; margin: 16mm 15mm 16mm 15mm; }
+@page :first { margin: 0; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif; color: #1d1d1f; font-size: 10.2pt; line-height: 1.45; margin: 0; }
+.cover { height: 297mm; width: 210mm; position: relative; background: #0f1410; color: #fff; overflow: hidden; page-break-after: always; }
+.cover img.photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .78; }
+.cover .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,16,10,.92) 0%, rgba(10,16,10,.35) 38%, rgba(10,16,10,.15) 60%, rgba(10,16,10,.9) 100%); }
+.cover .top { position: absolute; top: 22mm; left: 18mm; right: 18mm; }
+.cover .brand { font-size: 12pt; letter-spacing: 3px; color: #8fca8f; text-transform: uppercase; }
+.cover h1 { font-size: 46pt; margin: 4mm 0 2mm; letter-spacing: 1px; }
+.cover .subtitle { font-size: 16pt; color: #d9e8d9; }
+.cover .bottom { position: absolute; bottom: 18mm; left: 18mm; right: 18mm; display: flex; justify-content: space-between; align-items: end; font-size: 10pt; color: #cfdccf; }
+.cover .logo { background: #fff; border-radius: 10px; padding: 3mm 4mm; height: 24mm; }
+h2 { font-size: 16pt; color: #2f5f2f; border-bottom: 2px solid #518751; padding-bottom: 1.5mm; margin: 0 0 3.5mm; page-break-after: avoid; }
+h3 { font-size: 11.5pt; margin: 4.5mm 0 1.5mm; color: #1d1d1f; page-break-after: avoid; }
+section { margin-bottom: 7mm; }
+section.break { page-break-before: always; }
+p { margin: 0 0 2.4mm; }
+ul, ol { margin: 0 0 2.6mm; padding-left: 5.5mm; }
+li { margin: .6mm 0; }
+table { width: 100%; border-collapse: collapse; margin: 1.5mm 0 3.5mm; font-size: 9.4pt; page-break-inside: auto; }
+tr { page-break-inside: avoid; }
+th { background: #eaf3ea; color: #2f5f2f; text-align: left; font-weight: 600; padding: 1.6mm 2mm; border-bottom: 1px solid #b9d6b9; }
+td { padding: 1.4mm 2mm; border-bottom: 1px solid #e5e5e7; vertical-align: top; }
+td.k { font-weight: 600; white-space: nowrap; width: 26mm; }
+.key { display: inline-block; font-family: "SF Mono", Menlo, monospace; font-size: 8.4pt; background: #f2f2f4; border: 1px solid #dcdce0; border-radius: 3px; padding: 0 1.2mm; }
+.note { background: #eef6ee; border-left: 3px solid #518751; padding: 2.2mm 3mm; margin: 2mm 0 3.5mm; border-radius: 0 4px 4px 0; }
+.warn { background: #fff7e6; border-left: 3px solid #e0a020; padding: 2.2mm 3mm; margin: 2mm 0 3.5mm; border-radius: 0 4px 4px 0; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; align-items: start; }
+.figure img { width: 100%; border-radius: 6px; }
+.figure .cap { font-size: 8.6pt; color: #6e6e73; margin-top: 1mm; }
+.controls td.k { width: 30mm; }
+.toc { columns: 2; column-gap: 8mm; font-size: 10pt; }
+.toc div { margin: .8mm 0; }
+.small { font-size: 8.8pt; color: #6e6e73; }
+</style></head><body><div class="cover"><img class="photo" src="cover.jpg"><div class="shade"></div>
+<div class="top"><div class="brand">FalbaTech</div><h1>DIAL FT</h1>
+<div class="subtitle">User Guide &middot; DFTv1.3</div></div>
+<div class="bottom"><div>A smart dial with a round touchscreen<br>for creative work, editing and everyday tasks.<br><br>falbatech.click</div>
+<img class="logo" src="logo.png"></div></div>
+<section><h2>Contents</h2><div class='toc'><div>1. Getting started</div><div>2. Controls</div><div>3. HOME screen</div><div>4. Profiles</div><div>5. DaVinci Resolve: COLOR</div><div>6. Smart Touch Ring and Smart Scroll</div><div>7. Pomodoro, breaks and clock</div><div>8. RGB ring</div><div>9. Settings</div><div>10. Configurator and custom profiles</div><div>11. Firmware update</div><div>12. DIAL FT Helper (optional, macOS)</div><div>13. Troubleshooting</div><div>14. Specifications and safety</div></div></section>
+<section><h2>1. Getting started</h2>
+<div class="grid2"><div>
+<ol>
+<li>Connect DIAL FT to your computer (macOS, Windows or Linux) with the USB-C cable. No drivers are needed.</li>
+<li>After the FalbaTech logo a short tutorial appears: turn, click, hold, swipe and tap, one after another.</li>
+<li>Open <b>Settings → Host OS</b> and choose your system (macOS or Windows). It decides whether shortcuts use Cmd or Ctrl.</li>
+<li>Pick an app on the HOME screen by turning the dial and open it with a click or a tap.</li>
+</ol>
+<div class="note">Every profile works right away, with no software on your computer. To the computer DIAL FT is a USB keyboard and mouse. The optional DIAL FT Helper adds Spotify cover art, automatic profile switching and the clock.</div>
+</div><div class="figure"><img src="home.jpg"><div class="cap">HOME screen, Color theme.</div></div></div>
+</section>
+<section><h2>2. Controls</h2><table class='controls'><tr><td class='k'>Turn</td><td>select an icon / profile action (e.g. volume, frame) / select a row in settings</td></tr><tr><td class='k'>Click</td><td>opens an app; in a profile switches the mode (e.g. FRAME → ZOOM); in settings changes the value</td></tr><tr><td class='k'>Hold</td><td>back to the first HOME page (Pomodoro and the profile keep running)</td></tr><tr><td class='k'>Swipe</td><td>left / right: change HOME page; in a profile swipe right: back to HOME; Settings → RGB → Touch ring</td></tr><tr><td class='k'>Tap</td><td>opens an icon; in a profile the tap action (e.g. mute, play); on-screen buttons (LIKE, CAM, RESET)</td></tr><tr><td class='k'>Screen rim</td><td>Smart Touch Ring: slide your finger around the edge like a ring - fine control</td></tr></table><p class='small'>The screen dims after 45 s of inactivity (or shows the clock). The first turn, click or touch only wakes it.</p></section>
+<section><h2>3. HOME screen</h2><p>Icons are arranged in pages. The dots at the bottom show the current page. Turning walks through all icons on all pages.</p><table><tr><td class='k'>EVERYDAY</td><td>Pomodoro, Smart Scroll, Volume, Media, Spotify, Meetings</td></tr><tr><td class='k'>CREATIVE</td><td>DaVinci, Premiere, Final Cut, Photoshop, Lightroom, Pixelmator</td></tr><tr><td class='k'>DESIGN</td><td>Figma, Blender, Fusion 360, KiCad</td></tr><tr><td class='k'>SYSTEM</td><td>System, Settings</td></tr><tr><td class='k'>CUSTOM / CUSTOM 2</td><td>your profiles from the configurator (up to 12)</td></tr></table><p>Hide apps you do not use in the configurator (chapter 10). A dot next to an icon marks the active profile.</p></section>
+<section><h2>4. Profiles</h2><p>In a profile a click changes the mode (the dots under the name show which). Turning performs the mode action, tapping the center performs the tap action. <span class="key">Mod</span> = Ctrl on Windows, Cmd on macOS (Settings → Host OS).</p><table><tr><th>Profile</th><th>Mode</th><th>Turn</th></tr><tr><td class='k' rowspan='2'>Volume</td><td>VOLUME</td><td>system volume</td></tr><tr><td><i>tap</i></td><td>mute</td></tr><tr><td class='k' rowspan='3'>Smart Scroll</td><td>VERTICAL</td><td>scroll up / down</td></tr><tr><td>HORIZONTAL</td><td>scroll left / right</td></tr><tr><td><i>tap</i></td><td>invert direction</td></tr><tr><td class='k' rowspan='3'>Media</td><td>VOLUME</td><td>volume</td></tr><tr><td>TRACK</td><td>previous / next track</td></tr><tr><td><i>tap</i></td><td>play / pause</td></tr><tr><td class='k' rowspan='4'>Spotify</td><td>VOLUME</td><td>volume</td></tr><tr><td>TRACK</td><td>previous / next track</td></tr><tr><td>SEEK</td><td>seek in track (<span class="key">Shift</span>+<span class="key">←/→</span>)</td></tr><tr><td><i>tap</i></td><td>play / pause; LIKE button = like song (<span class="key">Alt</span>+<span class="key">Shift</span>+<span class="key">B</span>)</td></tr><tr><td class='k' rowspan='2'>Meetings</td><td>ZOOM / TEAMS / MEET</td><td>volume; the mode selects the app</td></tr><tr><td><i>tap</i></td><td>microphone on/off (red ring = muted); CAM button = camera</td></tr><tr><td class='k' rowspan='6'>DaVinci Resolve</td><td>FRAME</td><td>frame step (<span class="key">←/→</span>)</td></tr><tr><td>ZOOM</td><td>timeline zoom (<span class="key">Mod</span>+<span class="key">=/-</span>)</td></tr><tr><td>SCROLL</td><td>timeline scroll</td></tr><tr><td>JKL</td><td><span class="key">J</span> / <span class="key">L</span></td></tr><tr><td>COLOR</td><td>point the mouse at a value on the Color page and turn</td></tr><tr><td><i>tap</i></td><td>play / pause (<span class="key">Space</span>); screen rim = frame jog</td></tr><tr><td class='k' rowspan='5'>Premiere Pro</td><td>FRAME</td><td>frame step</td></tr><tr><td>ZOOM</td><td>timeline zoom (<span class="key">=</span> / <span class="key">-</span>)</td></tr><tr><td>EDIT</td><td>previous / next edit point</td></tr><tr><td>JKL</td><td><span class="key">J</span> / <span class="key">L</span></td></tr><tr><td><i>tap</i></td><td>play / pause; rim = jog</td></tr><tr><td class='k' rowspan='5'>Final Cut Pro</td><td>FRAME</td><td>frame step</td></tr><tr><td>ZOOM</td><td>zoom (<span class="key">Cmd</span>+<span class="key">=/-</span>)</td></tr><tr><td>EDIT</td><td>previous / next edit point</td></tr><tr><td>JKL</td><td><span class="key">J</span> / <span class="key">L</span></td></tr><tr><td><i>tap</i></td><td>play / pause; rim = jog</td></tr><tr><td class='k' rowspan='6'>Photoshop</td><td>BRUSH</td><td>brush size (<span class="key">[</span> / <span class="key">]</span>)</td></tr><tr><td>HARDNESS</td><td>brush hardness</td></tr><tr><td>ZOOM</td><td>zoom</td></tr><tr><td>HISTORY</td><td>undo / redo</td></tr><tr><td>LAYER</td><td>layer down / up</td></tr><tr><td><i>tap</i></td><td>fit on screen (<span class="key">Mod</span>+<span class="key">0</span>)</td></tr><tr><td class='k' rowspan='5'>Lightroom Classic</td><td>ADJUST</td><td>selected slider - / + (fast turn = big steps)</td></tr><tr><td>SLIDER</td><td>previous / next slider (<span class="key">,</span> / <span class="key">.</span>)</td></tr><tr><td>PHOTO</td><td>previous / next photo</td></tr><tr><td>ZOOM</td><td>zoom</td></tr><tr><td><i>tap</i></td><td>before / after (<span class="key">\</span>)</td></tr><tr><td class='k' rowspan='7'>Pixelmator Pro</td><td>BRUSH</td><td>brush size</td></tr><tr><td>HARDNESS</td><td>softer / harder</td></tr><tr><td>OPACITY</td><td>opacity 10-100%</td></tr><tr><td>ZOOM</td><td>zoom</td></tr><tr><td>HISTORY</td><td>undo / redo</td></tr><tr><td>LAYER</td><td>previous / next layer</td></tr><tr><td><i>tap</i></td><td>zoom to fit (<span class="key">Cmd</span>+<span class="key">0</span>)</td></tr><tr><td class='k' rowspan='5'>Figma</td><td>ZOOM</td><td>zoom</td></tr><tr><td>OPACITY</td><td>layer opacity 10-100%</td></tr><tr><td>LAYER</td><td>previous / next layer (<span class="key">Shift</span>+<span class="key">Tab</span> / <span class="key">Tab</span>)</td></tr><tr><td>HISTORY</td><td>undo / redo</td></tr><tr><td><i>tap</i></td><td>zoom to fit (<span class="key">Shift</span>+<span class="key">1</span>)</td></tr><tr><td class='k' rowspan='6'>Blender</td><td>ZOOM</td><td>view zoom</td></tr><tr><td>ORBIT</td><td>orbit left / right</td></tr><tr><td>TILT</td><td>orbit up / down</td></tr><tr><td>FRAME</td><td>frame</td></tr><tr><td>HISTORY</td><td>undo / redo</td></tr><tr><td><i>tap</i></td><td>view all (<span class="key">Home</span>); mouse over the 3D view</td></tr><tr><td class='k' rowspan='5'>Fusion 360</td><td>ZOOM</td><td>zoom</td></tr><tr><td>ORBIT</td><td>orbit (like Shift + middle mouse)</td></tr><tr><td>PAN</td><td>pan (like middle mouse)</td></tr><tr><td>HISTORY</td><td>undo / redo</td></tr><tr><td><i>tap</i></td><td>fit (<span class="key">F6</span>); mouse over the viewport</td></tr><tr><td class='k' rowspan='6'>KiCad</td><td>ZOOM</td><td>zoom</td></tr><tr><td>PAN X</td><td>pan left / right</td></tr><tr><td>PAN Y</td><td>pan up / down</td></tr><tr><td>LAYER</td><td>layer <span class="key"></span>+<span class="key"></span> / <span class="key">-</span></td></tr><tr><td>ROTATE</td><td>rotate item (<span class="key">R</span> / <span class="key">Shift</span>+<span class="key">R</span>)</td></tr><tr><td><i>tap</i></td><td><span class="key">Esc</span></td></tr><tr><td class='k' rowspan='5'>System</td><td>APPS</td><td>switch apps</td></tr><tr><td>DESKTOP</td><td>previous / next desktop</td></tr><tr><td>BRIGHTNESS</td><td>screen brightness*</td></tr><tr><td>UNDO</td><td>undo / redo</td></tr><tr><td><i>tap</i></td><td>Mission Control / Task View</td></tr></table><p class='small'>* Brightness keys work where the system supports them (usually a built-in laptop display). Final Cut Pro and Pixelmator Pro are macOS only. In Blender and Fusion 360 keep the mouse over the 3D view.</p><h3>Spotify</h3><p>Tracks, volume and play/pause use media keys and work even with Spotify in the background. SEEK and LIKE need the Spotify window in front. With DIAL FT Helper the screen shows cover art, title, artist and track progress.</p><h3>Meetings</h3><p>Click to choose the app: ZOOM, TEAMS or MEET (Google Meet in a browser). Tap mutes the microphone - the RGB ring then pulses red. The CAM button toggles the camera. DIAL keeps track of the state itself; if you mute with the mouse, tap twice to get back in sync.</p></section>
+<section><h2>5. DaVinci Resolve: COLOR</h2>
+<p>The COLOR mode in the DaVinci profile controls the real controls on the Color page - no software needed, also in the free DaVinci Resolve.</p>
+<ol><li>In the DaVinci profile click until <b>HOVER + TURN</b> appears.</li>
+<li>Point the mouse at a value, e.g. Temp, Tint, Contrast, Saturation or the ribbed bar under the Lift / Gamma / Gain / Offset wheel.</li>
+<li>Turn the dial. A tap changes the step: FINE / NORMAL / COARSE. The screen rim gives the smallest steps.</li></ol>
+<div class="warn">Turning works like dragging with the mouse. Keep the pointer over a value - over another item (e.g. a node) it would move it.</div></section>
+<section><h2>6. Smart Touch Ring and Smart Scroll</h2>
+<p><b>Smart Touch Ring</b>: slide your finger around the screen edge. It works like a second, finer dial. Settings per profile: <b>Settings → Touch ring</b> (or swipe left from the RGB ring screen).</p>
+<table><tr><td class="k">Touch mode</td><td>SMOOTH or STEP</td></tr>
+<tr><td class="k">Sensitivity</td><td>LOW / MEDIUM / HIGH</td></tr>
+<tr><td class="k">Inertia</td><td>momentum after a flick: OFF / LOW / MEDIUM / HIGH</td></tr>
+<tr><td class="k">Direction</td><td>NORMAL / REVERSE</td></tr>
+<tr><td class="k">Adaptive</td><td>faster movement = bigger changes</td></tr>
+<tr><td class="k">Touch ring</td><td>on / off for this profile</td></tr></table>
+<p><b>Smart Scroll</b>: scrolling with acceleration (SMART) or constant (PRECISION), momentum and vertical / horizontal axis (click). Reversing the direction stops the momentum immediately; so does touching the screen.</p></section>
+<section><h2>7. Pomodoro, breaks and clock</h2>
+<p><b>Pomodoro</b>: turn to set the focus time (when stopped), click or tap to start / pause, RESET to start over. Set the break in Settings → Pomo break. When a period ends the screen blinks and the ring flashes white. The timer keeps running while you use other profiles.</p>
+<p><b>Statistics</b>: sessions today and in the last 7 days (when DIAL knows the time - see below).</p>
+<p><b>Stand-up reminder</b>: after 50 minutes of work without a 5-minute break DIAL shows “TIME TO STAND UP”. Any input dismisses it. Turn it off in Settings → Stand-up.</p>
+<p><b>Clock face</b>: when idle DIAL shows the time, date, seconds ring, Pomodoro and the song title. DIAL has no battery clock - the time is set by the configurator (when connected) or by DIAL FT Helper (permanently). Without it the screen simply dims.</p></section>
+<section><h2>8. RGB ring</h2>
+<table><tr><td class="k">Mode</td><td>Off, Follow (light follows the dial), Ambient, Breathe, Rainbow</td></tr>
+<tr><td class="k">Color</td><td>theme color, 36 hues or white - remembered separately for each theme</td></tr>
+<tr><td class="k">Brightness</td><td>20-100%</td></tr>
+<tr><td class="k">Pomodoro</td><td>the ring shows Pomodoro progress</td></tr>
+<tr><td class="k">Action flash</td><td>short flash on actions</td></tr>
+<tr><td class="k">Idle off</td><td>turns off with the screen</td></tr>
+<tr><td class="k">Direction</td><td>light direction relative to the dial</td></tr></table>
+<p>A red pulse means the microphone is muted in the Meetings profile.</p></section>
+<section><h2>9. Settings</h2><table><tr><td class='k'>Theme</td><td>color theme: Ocean, Amber, Mint, Violet, Rose, Mono, Color (every app in its own color), FalbaTech</td></tr><tr><td class='k'>Host OS</td><td>Windows (Ctrl shortcuts) or macOS (Cmd shortcuts) - set it to match your computer</td></tr><tr><td class='k'>Scroll dir</td><td>scroll direction</td></tr><tr><td class='k'>Brightness</td><td>DIAL screen brightness</td></tr><tr><td class='k'>RGB ring</td><td>quick RGB ring on / off</td></tr><tr><td class='k'>Pomo break</td><td>Pomodoro break: 3 / 5 / 10 / 15 min</td></tr><tr><td class='k'>Touch jog ... Jog dir</td><td>DaVinci rim jog: on/off, speed, inertia, direction</td></tr><tr><td class='k'>Touch ring ></td><td>Smart Touch Ring - per-profile settings (see below)</td></tr><tr><td class='k'>Auto profile</td><td>automatic profile switching with DIAL FT Helper</td></tr><tr><td class='k'>Clock face</td><td>clock face when idle</td></tr><tr><td class='k'>Stand-up</td><td>stand-up reminder after 50 min of work</td></tr><tr><td class='k'>Tutorial ></td><td>runs the tutorial again</td></tr><tr><td class='k'>Version</td><td>firmware version</td></tr></table><p class='small'>Changes are saved automatically in DIAL.</p></section>
+<section><h2>10. Configurator and custom profiles</h2>
+<p>The configurator is the page <b>falbatech.click/dial-ft</b>. It works in Google Chrome or Microsoft Edge on a computer - nothing to install. Everything is saved in DIAL, so it then works on any computer.</p>
+<ol><li>Plug in DIAL FT and click <b>Connect DIAL FT</b>. Choose DIAL FT in the window.</li>
+<li><b>General</b>: theme, system, brightness, RGB ring, Pomodoro, auto profile, clock, reminder.</li>
+<li><b>Home screen</b>: untick apps you do not use.</li>
+<li><b>Your own profiles</b>: up to 12 profiles for any program, from templates or from scratch.</li>
+<li>Click <b>Save to DIAL FT</b>.</li></ol>
+<h3>Custom profile</h3>
+<ul><li>Name, icon and color (shown in the Color theme). A template (“Start from template”) fills the profile with ready shortcuts, e.g. for a browser, DaVinci, Premiere, Photoshop, Lightroom, Figma or VS Code.</li>
+<li>Up to 4 modes. Every mode has 4 actions: <b>turn left</b>, <b>turn right</b>, <b>tap</b> and <b>dial click</b> (empty click = next mode).</li>
+<li>Every action can be a <b>macro</b> - up to 6 steps in a row: keyboard shortcut (click the field and press it), media key, mouse wheel, pause, type text, next / previous mode.</li>
+<li>Two texts per profile (up to 32 characters, ASCII) for the “Type text” step, e.g. a signature or an e-mail address.</li>
+<li><b>Program</b> (optional): app identifier for auto profile, e.g. com.apple.Safari (macOS) or chrome.exe (Windows).</li>
+<li><b>Export / Import profiles</b>: save all profiles to a file and load them back - a backup or a way to share profiles.</li></ul>
+<div class="note">“Ctrl/Cmd” in shortcuts is sent as Cmd on Mac and Ctrl on Windows - following the Host OS setting. One profile works on both systems.</div></section>
+<section><h2>11. Firmware update</h2>
+<p>Install updates on the same page (falbatech.click/dial-ft), in the Firmware update section. Settings and custom profiles are kept.</p>
+<ol><li>Click <b>1. Prepare</b> and choose DIAL FT. The screen goes dark - DIAL is in update mode.</li>
+<li>Click <b>2. Install update</b> and choose the port “USB JTAG/serial debug unit”.</li>
+<li>When it reports success, unplug and plug in DIAL FT.</li></ol>
+<p class="small">If DIAL does not enter update mode: unplug the cable, hold the BOOT button on the back of the board, plug the cable in, release the button and start from step 2.</p></section>
+<section><h2>12. DIAL FT Helper (optional, macOS)</h2>
+<p>A small background program. Download it from the configurator. It adds:</p>
+<ul><li>Spotify cover art, title, artist and progress on the DIAL screen,</li>
+<li>automatic profile switching when you change apps (DaVinci, Premiere, Final Cut, Photoshop, Lightroom, Pixelmator, Spotify, Zoom, Teams, Figma, Blender, Fusion 360, KiCad and your profiles),</li>
+<li>the time for the clock face and Pomodoro statistics.</li></ul>
+<p>Install: unzip the archive and run <span class="key">install_mac.sh</span> in Terminal. The helper starts automatically at login. On the first song macOS asks for permission to control Spotify - click Allow. Uninstall: <span class="key">install_mac.sh --uninstall</span>.</p>
+<p class="small">Auto profile does not switch while you are in Settings or Pomodoro. Turn it off in Settings → Auto profile.</p></section>
+<section><h2>13. Troubleshooting</h2><table><tr><th>Problem</th><th>Solution</th></tr><tr><td>Shortcuts do not work on Mac (or Windows)</td><td>Set Settings → Host OS to match your computer.</td></tr><tr><td>Scrolling goes the wrong way</td><td>Settings → Scroll dir or a tap in the Smart Scroll profile.</td></tr><tr><td>No clock when idle</td><td>Connect the configurator or install DIAL FT Helper (DIAL has no battery clock).</td></tr><tr><td>COLOR moves something else</td><td>Keep the pointer over a value in Resolve, not over a node or clip.</td></tr><tr><td>No Spotify cover art</td><td>Run DIAL FT Helper and allow it to control Spotify (System Settings → Privacy → Automation).</td></tr><tr><td>The configurator cannot see DIAL</td><td>Use Chrome or Edge, close other programs using the DIAL port, reconnect the cable.</td></tr><tr><td>DIAL does not respond</td><td>Unplug and plug in the USB cable. Settings are not lost.</td></tr></table></section>
+<section><h2>14. Specifications and safety</h2>
+<div class="grid2"><table>
+<tr><td class="k">Display</td><td>round 1.28″, 240×240, touch</td></tr>
+<tr><td class="k">Input</td><td>dial with click, touchscreen</td></tr>
+<tr><td class="k">Lighting</td><td>ring of 5 RGB LEDs</td></tr>
+<tr><td class="k">Processor</td><td>ESP32-S3</td></tr>
+<tr><td class="k">Connector</td><td>USB-C, power and data</td></tr>
+<tr><td class="k">Systems</td><td>macOS, Windows, Linux</td></tr>
+<tr><td class="k">Housing</td><td>wooden base, metal ring</td></tr>
+<tr><td class="k">Firmware</td><td>DFTv1.3</td></tr></table>
+<div><ul>
+<li>Indoor use only; keep away from water and moisture.</li>
+<li>Clean the wood with a dry or slightly damp cloth and the screen with a soft cloth, no chemicals.</li>
+<li>Do not open the housing or bend the cable at the plug.</li>
+<li>Do not dispose of the device with household waste - take it to an electronics collection point.</li>
+</ul><p class="small">FalbaTech &middot; falbatech.click</p></div></div></section></body></html>

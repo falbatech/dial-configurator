@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DIAL FT Configurator</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; background: #0d0d0f; }
+  main { max-width: 980px; margin: 0 auto; padding: 8px 16px 40px; }
+</style>
+</head>
+<body>
+<main>
+  <!-- ?demo w adresie = podglad bez urzadzenia; ?lang=pl / ?lang=en wymusza jezyk -->
+  <dialft-configurator id="cfg" theme="dark" manifest="manifest.json" helper="helper/DIAL-FT-Helper-mac.zip"
+                       guide-pl="DIAL_FT_Instrukcja_PL.pdf" guide-en="DIAL_FT_User_Guide_EN.pdf"></dialft-configurator>
+</main>
+<script>
+  const q = new URLSearchParams(location.search), c = document.getElementById("cfg");
+  if (q.has("demo")) c.setAttribute("demo", "");
+  if (q.get("lang")) c.setAttribute("lang", q.get("lang"));
+</script>
+<script src="dialft-configurator.js"></script>
+</body>
+</html>
