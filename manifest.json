@@ -1,6 +1,6 @@
 {
   "name": "DIAL FT",
-  "version": "DFTv1.2",
+  "version": "DFTv1.3",
   "new_install_prompt_erase": false,
   "builds": [
     {

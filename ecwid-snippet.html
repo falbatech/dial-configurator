@@ -1,4 +1,4 @@
-<!-- DIAL FT Configurator (DFTv1.2) - wklej w Ecwid: Osadz kod / kod wlasny -->
+<!-- DIAL FT Configurator (DFTv1.3) - wklej w Ecwid: Osadz kod / kod wlasny -->
 <dialft-configurator theme="light" lang="auto"></dialft-configurator>
 <script>
 /* DIAL FT Configurator - komponent <dialft-configurator> (FalbaTech).
@@ -38,6 +38,13 @@
       removeMode: "Remove mode", tap: "Tap on screen:", clickKeys: "click & press keys", pressKeys: "press keys…", keyNo: "key not supported",
       notches: "notches", none: "—",
       actNone: "Nothing", actKey: "Key", actMedia: "Media", actWheel: "Scroll ↕", actPan: "Scroll ↔",
+      actDelay: "Pause", actText: "Type text", actNext: "Next mode", actPrev: "Previous mode", ms: "ms",
+      aLeft: "Turn left", aRight: "Turn right", aTap: "Tap screen", aClick: "Click dial", clickDefault: "next mode (default)",
+      addStep: "+ step", empty: "nothing", texts: "Texts for “Type text” (ASCII)", text1: "Text 1", text2: "Text 2",
+      template: "Start from template…", templateAsk: "Replace this profile with the template?",
+      exportB: "Export profiles", importB: "Import profiles", importErr: "This file is not a DIAL FT profile export.",
+      macroNote: "Update DIAL FT to DFTv1.3 or newer to use macros, tap and click per mode.",
+      seqHint: "Each action can be a macro: up to {n} steps run one after another.",
       clockT: "Clock", clockHint: "DIAL FT has no battery clock. This page sets the time when you connect; DIAL FT Helper keeps it updated.",
       setClock: "Set clock now", clockSet: "Clock set to",
       updT: "Firmware update", updHint: "Your settings and profiles stay on the device.",
@@ -71,6 +78,13 @@
       removeMode: "Usuń tryb", tap: "Tapnięcie ekranu:", clickKeys: "kliknij i naciśnij skrót", pressKeys: "naciśnij klawisze…", keyNo: "klawisz nieobsługiwany",
       notches: "ząbki", none: "—",
       actNone: "Nic", actKey: "Klawisz", actMedia: "Multimedia", actWheel: "Kółko ↕", actPan: "Kółko ↔",
+      actDelay: "Pauza", actText: "Wpisz tekst", actNext: "Następny tryb", actPrev: "Poprzedni tryb", ms: "ms",
+      aLeft: "Obrót w lewo", aRight: "Obrót w prawo", aTap: "Tapnięcie", aClick: "Klik pokrętła", clickDefault: "następny tryb (domyślnie)",
+      addStep: "+ krok", empty: "nic", texts: "Teksty do kroku „Wpisz tekst” (bez polskich znaków)", text1: "Tekst 1", text2: "Tekst 2",
+      template: "Zacznij od szablonu…", templateAsk: "Zastąpić ten profil szablonem?",
+      exportB: "Eksportuj profile", importB: "Importuj profile", importErr: "To nie jest plik z profilami DIAL FT.",
+      macroNote: "Zaktualizuj DIAL FT do DFTv1.3 lub nowszego, aby używać makr oraz tapnięcia i kliku w każdym trybie.",
+      seqHint: "Każda akcja może być makrem: do {n} kroków wykonywanych po kolei.",
       clockT: "Zegar", clockHint: "DIAL FT nie ma zegara z baterią. Ta strona ustawia godzinę przy połączeniu, a DIAL FT Helper aktualizuje ją na bieżąco.",
       setClock: "Ustaw zegar teraz", clockSet: "Ustawiono godzinę",
       updT: "Aktualizacja oprogramowania", updHint: "Ustawienia i Twoje profile zostają w urządzeniu.",
@@ -87,6 +101,47 @@
     },
   };
   const MEDIA_CODES = [0xCD, 0xB5, 0xB6, 0xE9, 0xEA, 0xE2, 0x6F, 0x70];
+  // szablony profili (kroki [typ, modyfikatory, kod]); M = Ctrl/Cmd wg ustawienia "Komputer"
+  const K = (code, m = 0) => [[1, m, code]], M = 1, SH = 2, AL = 4;
+  const LEFT = 0xD8, RIGHT = 0xD7, UP = 0xDA, DOWN = 0xD9, TAB = 0xB3, PGUP = 0xD3, PGDN = 0xD6, SPACE = 32;
+  const TEMPLATES = [
+    { name: "Browser", icon: 13, color: "#4285f4", app: "com.google.Chrome", modes: [
+      { name: "TABS", l: K(TAB, M | SH), r: K(TAB, M), tap: K(116, M) },
+      { name: "SCROLL", l: [[3, 0, -2]], r: [[3, 0, 2]], tap: K(SPACE) },
+      { name: "ZOOM", l: K(45, M), r: K(61, M), tap: K(48, M) },
+      { name: "HISTORY", l: K(91, M), r: K(93, M), tap: K(114, M) }] },
+    { name: "DaVinci edit", icon: 2, color: "#ff8c28", app: "com.blackmagic-design.DaVinciResolve", modes: [
+      { name: "FRAME", l: K(LEFT), r: K(RIGHT), tap: K(SPACE) },
+      { name: "ZOOM", l: K(45, M), r: K(61, M), tap: K(122, SH) },
+      { name: "EDIT", l: K(UP), r: K(DOWN), tap: K(98, M) },
+      { name: "JKL", l: K(106), r: K(108), tap: K(107) }] },
+    { name: "Premiere", icon: 14, color: "#9999ff", app: "com.adobe.PremierePro", modes: [
+      { name: "FRAME", l: K(LEFT), r: K(RIGHT), tap: K(SPACE) },
+      { name: "ZOOM", l: K(45), r: K(61), tap: K(92) },
+      { name: "EDIT", l: K(UP), r: K(DOWN), tap: K(107, M) },
+      { name: "JKL", l: K(106), r: K(108), tap: K(107) }] },
+    { name: "Photoshop", icon: 6, color: "#31a8ff", app: "com.adobe.Photoshop", modes: [
+      { name: "BRUSH", l: K(91), r: K(93), tap: K(120) },
+      { name: "ZOOM", l: K(45, M), r: K(61, M), tap: K(48, M) },
+      { name: "HISTORY", l: K(122, M), r: K(122, M | SH), tap: K(115, M) },
+      { name: "LAYER", l: K(91, AL), r: K(93, AL), tap: K(106, M) }] },
+    { name: "Lightroom", icon: 7, color: "#40e0d0", app: "com.adobe.LightroomClassic", modes: [
+      { name: "ADJUST", l: K(0xDE), r: K(0xDF), tap: K(92) },
+      { name: "SLIDER", l: K(44), r: K(46), tap: K(92) },
+      { name: "PHOTO", l: K(LEFT, M), r: K(RIGHT, M), tap: K(112) },
+      { name: "RATING", l: K(48), r: K(53), tap: K(117) }] },
+    { name: "Figma", icon: 16, color: "#f24e1e", app: "com.figma.Desktop", modes: [
+      { name: "ZOOM", l: K(45, M), r: K(61, M), tap: K(49, SH) },
+      { name: "LAYER", l: K(TAB, SH), r: K(TAB), tap: K(103, M | AL) },
+      { name: "HISTORY", l: K(122, M), r: K(122, M | SH), tap: K(100, M) }] },
+    { name: "VS Code", icon: 3, color: "#007acc", app: "com.microsoft.VSCode", modes: [
+      { name: "TABS", l: K(PGUP, M), r: K(PGDN, M), tap: K(112, M | SH) },
+      { name: "LINES", l: K(UP, AL), r: K(DOWN, AL), tap: K(47, M) },
+      { name: "ZOOM", l: K(45, M), r: K(61, M), tap: K(98, M) },
+      { name: "HISTORY", l: K(122, M), r: K(122, M | SH), tap: K(115, M) }] },
+    { name: "Signature", icon: 19, color: "#518751", app: "", texts: ["Best regards,", "Your name"], modes: [
+      { name: "TYPE", l: [[6, 0, 0]], r: [[6, 0, 0], [1, 0, 0xB0], [6, 0, 1]], tap: [[6, 0, 0], [1, 0, 0xB0], [6, 0, 1]] }] },
+  ];
   // KeyboardEvent.code -> kod klawisza Arduino USBHIDKeyboard
   const KEYMAP = (() => {
     const m = {};
@@ -148,6 +203,13 @@
   .rec.listening { outline: 2px solid var(--acc); color: var(--text); }
   .act input[type=number] { width: 64px; }
   .muted { color: var(--muted); font-size: 13px; }
+  .modecard { border: 1px solid var(--line); border-radius: 10px; padding: 10px; margin-top: 10px; background: var(--panel); }
+  .actgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 8px; }
+  .actlabel { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+  .seq { display: flex; flex-direction: column; gap: 5px; }
+  label.btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+  label.btn.small { padding: 5px 10px; font-size: 12px; border-radius: 8px; }
+  @media (max-width: 760px) { .actgrid { grid-template-columns: 1fr; } }
   ol { margin: 6px 0 12px; padding-left: 20px; color: var(--muted); font-size: 14px; } li { margin: 4px 0; }
   .savebar { position: sticky; bottom: 12px; margin-left: auto; width: max-content; max-width: 100%; display: flex; gap: 10px; align-items: center;
              background: var(--panel); border: 1px solid var(--line); padding: 10px 12px; border-radius: 14px; box-shadow: 0 8px 30px rgba(0,0,0,.18); z-index: 3; }
@@ -201,7 +263,11 @@
               <label class="switch"><input id="s_scrollInv" type="checkbox">${L.inv}</label>
             </div></section>
           <section><h2>${L.home}</h2><p class="hint">${L.homeHint}</p><div id="apps" class="apps"></div></section>
-          <section><h2>${L.profiles}</h2><p class="hint">${L.profilesHint}</p><div id="profiles"></div></section>
+          <section><h2>${L.profiles}</h2><p class="hint">${L.profilesHint} <span id="seqhint"></span></p>
+            <div class="row"><button id="exportp" class="small ghost">${L.exportB}</button>
+              <label class="btn small ghost" style="cursor:pointer">${L.importB}<input id="importp" type="file" accept=".json,application/json" class="hidden"></label>
+              <span id="macronote" class="muted hidden">${L.macroNote}</span></div>
+            <div id="profiles"></div></section>
           <section><h2>${L.clockT}</h2><p class="hint">${L.clockHint}</p><button id="synctime" class="ghost">${L.setClock}</button> <span id="timeinfo" class="muted"></span></section>
           <div id="savebar" class="savebar"><span id="dirty" class="muted"></span><button id="revert" class="ghost">${L.undo}</button><button id="save">${L.save}</button></div>
         </div>
@@ -219,6 +285,8 @@
       this.$("save").addEventListener("click", () => this.save());
       this.$("revert").addEventListener("click", () => { this.cfg = JSON.parse(this.original); this.render(); this.markDirty(); });
       this.$("synctime").addEventListener("click", () => this.port && this.syncTime());
+      this.$("exportp").addEventListener("click", () => this.cfg && this.exportProfiles());
+      this.$("importp").addEventListener("change", e => { if (this.cfg && e.target.files[0]) this.importProfiles(e.target.files[0]); e.target.value = ""; });
       this.bindSettings();
       if (manifest) {
         if (!customElements.get("esp-web-install-button")) { const s = document.createElement("script"); s.type = "module"; s.src = ESP_WEB_TOOLS; document.head.appendChild(s); }
@@ -297,12 +365,23 @@
     }
 
     // ------------------------------------------------------------ dane
-    normalize(c) {   // puste sloty dostaja domyslne pola, zanim zapamietamy stan "bez zmian"
+    normalize(c) {   // jednolity format (makra) niezaleznie od wersji firmware; puste sloty dostaja domyslne pola
+      this.v2 = (c.cfgv || 1) >= 2;
+      this.maxSteps = this.v2 ? (c.maxSteps || 6) : 1;
+      const seq = v => !v ? [] : (typeof v[0] === "number" ? (v[0] ? [v.slice(0, 3)] : []) : v.filter(x => x && x[0]).map(x => x.slice(0, 3)));
       for (const p of c.custom) {
-        if (!p.modes || !p.modes.length) p.modes = [{ name: "MODE", l: [0, 0, 0], r: [0, 0, 0] }];
-        if (!p.tap) p.tap = [0, 0, 0];
+        const oldTap = seq(p.tap);
+        if (!p.modes || !p.modes.length) p.modes = [{ name: "MODE" }];
+        for (const m of p.modes) {
+          m.l = seq(m.l); m.r = seq(m.r);
+          m.tap = m.tap ? seq(m.tap) : oldTap.slice();
+          m.click = seq(m.click);
+        }
+        delete p.tap;
+        if (!p.texts) p.texts = ["", ""];
         if (!p.color) p.color = "#518751";
         if (p.icon == null) p.icon = 19;
+        if (p.app == null) p.app = "";
       }
       return c;
     }
@@ -320,18 +399,47 @@
       this.markDirty();
     }
     async save() {
-      const c = this.cfg;
-      const out = {
-        settings: c.settings,
-        hidden: c.apps.filter(a => a.hidden).map(a => a.i),
-        custom: c.custom.map(p => ({ used: p.used ? 1 : 0, name: p.name, icon: p.icon, color: p.color, app: p.app, tap: p.tap,
-          modes: p.modes.map(m => ({ name: m.name, l: m.l, r: m.r })) })),
-      };
+      const c = this.cfg, L = this.L;
+      const prof = p => ({ used: p.used ? 1 : 0, name: p.name, icon: p.icon, color: p.color, app: p.app, texts: p.texts,
+        modes: p.modes.map(m => ({ name: m.name, l: m.l, r: m.r, tap: m.tap, click: m.click })) });
       this.$("save").disabled = true;
-      const r = await this.request("CFG SET " + JSON.stringify(out), l => l.startsWith("CFG OK") || l.startsWith("CFG ERR"), 5000);
-      if (r && r.startsWith("CFG OK")) { this.original = JSON.stringify(this.cfg); this.setStatus(this.L.saved, "ok"); }
-      else this.setStatus(r || this.L.failed, "err");
+      const ok = r => r && r.startsWith("CFG OK");
+      const ask = line => this.request(line, l => l.startsWith("CFG OK") || l.startsWith("CFG ERR"), 6000);
+      let r;
+      if (this.v2) {   // ustawienia, potem kazdy profil osobnym wierszem (makra sa dlugie)
+        r = await ask("CFG SET " + JSON.stringify({ settings: c.settings, hidden: c.apps.filter(a => a.hidden).map(a => a.i) }));
+        for (let i = 0; ok(r) && i < c.custom.length; i++) r = await ask("CFG SET " + JSON.stringify({ slot: i, profile: prof(c.custom[i]) }));
+      } else {         // firmware 1.2: jedna akcja na obrot, tap wspolny dla profilu
+        const first = q => q.length ? q[0] : [0, 0, 0];
+        r = await ask("CFG SET " + JSON.stringify({ settings: c.settings, hidden: c.apps.filter(a => a.hidden).map(a => a.i),
+          custom: c.custom.map(p => ({ used: p.used ? 1 : 0, name: p.name, icon: p.icon, color: p.color, app: p.app,
+            tap: first(p.modes[0].tap), modes: p.modes.map(m => ({ name: m.name, l: first(m.l), r: first(m.r) })) })) }));
+      }
+      if (ok(r)) { this.original = JSON.stringify(this.cfg); this.setStatus(L.saved, "ok"); }
+      else this.setStatus(r || L.failed, "err");
       this.markDirty();
+    }
+    exportProfiles() {
+      const data = JSON.stringify({ dialft: 2, custom: this.cfg.custom }, null, 1);
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([data], { type: "application/json" }));
+      a.download = "dialft-profiles.json";
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+    }
+    importProfiles(file) {
+      const rd = new FileReader();
+      rd.onload = () => {
+        try {
+          const d = JSON.parse(rd.result);
+          if (!d || !Array.isArray(d.custom)) throw 0;
+          const n = this.cfg.custom.length;
+          const tmp = this.normalize({ cfgv: this.v2 ? 2 : 1, maxSteps: this.maxSteps, custom: d.custom.slice(0, n) }).custom;
+          for (let i = 0; i < n; i++) if (tmp[i]) this.cfg.custom[i] = tmp[i];
+          this.render(); this.markDirty();
+        } catch (e) { alert(this.L.importErr); }
+      };
+      rd.readAsText(file);
     }
     markDirty() {
       const d = JSON.stringify(this.cfg) !== this.original;
@@ -363,11 +471,20 @@
         el("input", { type: "checkbox", checked: !a.hidden, disabled: !!a.fixed, onchange: e => { a.hidden = e.target.checked ? 0 : 1; this.markDirty(); } }),
         a.name, el("small", {}, this.cfg.pages[a.page] || ""))));
       $("profiles").replaceChildren(...this.cfg.custom.map((c, i) => this.renderProfile(c, i)));
+      $("seqhint").textContent = this.v2 ? this.L.seqHint.replace("{n}", this.maxSteps) : "";
+      $("macronote").classList.toggle("hidden", this.v2);
     }
     renderProfile(c, i) {
       const L = this.L, el = this.el.bind(this), ch = () => this.markDirty();
       const box = el("div", { class: "prof" + (c.used ? "" : " off") });
       const redraw = () => box.replaceWith(this.renderProfile(c, i));
+      const tpl = el("select", { style: "max-width:190px", onchange: e => {
+        const t = TEMPLATES[+e.target.value]; e.target.value = "";
+        if (!t || (c.used && !confirm(L.templateAsk))) return;
+        Object.assign(c, JSON.parse(JSON.stringify({ used: 1, name: t.name.slice(0, 12), icon: t.icon, color: t.color, app: t.app || "",
+          texts: t.texts || ["", ""], modes: t.modes.map(m => ({ name: m.name, l: m.l || [], r: m.r || [], tap: m.tap || [], click: m.click || [] })) })));
+        ch(); redraw();
+      } }, el("option", { value: "" }, L.template), ...TEMPLATES.map((t, k) => el("option", { value: k }, t.name)));
       box.append(el("div", { class: "head" },
         el("label", { class: "switch" }, el("input", { type: "checkbox", checked: !!c.used, onchange: e => { c.used = e.target.checked ? 1 : 0; ch(); redraw(); } }), L.profile + " " + (i + 1)),
         el("label", { class: "field" }, L.name, el("input", { value: c.name || "", maxlength: 12, oninput: e => { c.name = e.target.value; ch(); } })),
@@ -375,21 +492,49 @@
           ...L.icons.map((n, k) => el("option", { value: k, selected: k === c.icon }, n)))),
         el("label", { class: "field" }, L.color, el("input", { type: "color", value: c.color, oninput: e => { c.color = e.target.value; ch(); } })),
         el("label", { class: "field", style: "flex:1;min-width:200px" }, L.program,
-          el("input", { value: c.app || "", maxlength: 39, placeholder: L.programPh, oninput: e => { c.app = e.target.value; ch(); } }))));
+          el("input", { value: c.app || "", maxlength: 39, placeholder: L.programPh, oninput: e => { c.app = e.target.value; ch(); } })),
+        tpl));
       if (!c.used) return box;
-      box.append(el("div", { class: "colhead" }, el("span", {}, L.modeName), el("span", {}, L.left), el("span", {}, L.right), el("span")));
-      const modes = el("div", { class: "modes" });
-      c.modes.forEach((m, k) => modes.append(el("div", { class: "mode" },
-        el("input", { value: m.name, maxlength: 10, oninput: e => { m.name = e.target.value.toUpperCase(); e.target.value = m.name; ch(); } }),
-        this.actEditor(m.l, v => { m.l = v; ch(); }, "←"),
-        this.actEditor(m.r, v => { m.r = v; ch(); }, "→"),
-        c.modes.length > 1 ? el("button", { class: "small ghost", title: L.removeMode, onclick: () => { c.modes.splice(k, 1); ch(); redraw(); } }, "×") : el("span"))));
-      box.append(modes);
+      if (this.v2) box.append(el("div", { class: "row", style: "margin-top:10px" },
+        el("span", { class: "muted" }, L.texts),
+        el("input", { value: c.texts[0], maxlength: 32, placeholder: L.text1, style: "flex:1;min-width:150px", oninput: e => { c.texts[0] = e.target.value; ch(); } }),
+        el("input", { value: c.texts[1], maxlength: 32, placeholder: L.text2, style: "flex:1;min-width:150px", oninput: e => { c.texts[1] = e.target.value; ch(); } })));
+      c.modes.forEach((m, k) => {
+        const card = el("div", { class: "modecard" });
+        card.append(el("div", { class: "row" },
+          el("input", { value: m.name, maxlength: 10, style: "width:140px;font-weight:600", oninput: e => { m.name = e.target.value.toUpperCase(); e.target.value = m.name; ch(); } }),
+          el("span", { class: "grow" }),
+          c.modes.length > 1 ? el("button", { class: "small ghost", title: L.removeMode, onclick: () => { c.modes.splice(k, 1); ch(); redraw(); } }, "×") : null));
+        const acts = [["l", L.aLeft, "←"], ["r", L.aRight, "→"], ["tap", L.aTap, "●"]];
+        if (this.v2) acts.push(["click", L.aClick, "◉"]);
+        const g = el("div", { class: "actgrid" });
+        for (const [key, label, sym] of acts) {
+          if (!this.v2 && key === "tap" && k > 0) continue;   // firmware 1.2: tap wspolny = z pierwszego trybu
+          g.append(el("div", { class: "actcell" }, el("div", { class: "actlabel" }, sym + " " + label),
+            this.seqEditor(m[key], v => { m[key] = v; ch(); }, key === "click" ? L.clickDefault : L.empty)));
+        }
+        card.append(g);
+        box.append(card);
+      });
       box.append(el("div", { class: "row", style: "margin-top:10px" },
-        c.modes.length < 4 ? el("button", { class: "small ghost", onclick: () => { c.modes.push({ name: "MODE " + (c.modes.length + 1), l: [0, 0, 0], r: [0, 0, 0] }); ch(); redraw(); } }, L.addMode) : null,
-        el("span", { class: "muted", style: "margin-left:auto" }, L.tap),
-        el("div", { style: "min-width:220px;max-width:100%;flex:1" }, this.actEditor(c.tap, v => { c.tap = v; ch(); }))));
+        c.modes.length < 4 ? el("button", { class: "small ghost", onclick: () => { c.modes.push({ name: "MODE " + (c.modes.length + 1), l: [], r: [], tap: [], click: [] }); ch(); redraw(); } }, L.addMode) : null));
       return box;
+    }
+    seqEditor(steps, set, emptyText) {   // makro: lista krokow, kazdy krok to edytor akcji
+      const L = this.L, el = this.el.bind(this);
+      steps = steps.map(x => x.slice());
+      const wrap = el("div", { class: "seq" });
+      const draw = () => {
+        wrap.replaceChildren();
+        steps.forEach((st, i) => wrap.append(el("div", { class: "row", style: "gap:6px;flex-wrap:nowrap" },
+          el("div", { style: "flex:1;min-width:0" }, this.actEditor(st, v => { if (v[0]) steps[i] = v; else steps.splice(i, 1); set(steps.map(x => x.slice())); if (!v[0]) draw(); })),
+          el("button", { class: "small ghost", title: "×", onclick: () => { steps.splice(i, 1); set(steps.map(x => x.slice())); draw(); } }, "×"))));
+        if (!steps.length) wrap.append(el("span", { class: "muted", style: "font-size:12px" }, emptyText));
+        if (steps.length < this.maxSteps)
+          wrap.append(el("button", { class: "small ghost", style: "align-self:flex-start", onclick: () => { steps.push([1, 0, 0]); set(steps.map(x => x.slice())); draw(); } }, L.addStep));
+      };
+      draw();
+      return wrap;
     }
     actLabel(a) {
       if (a[0] !== 1) return "";
@@ -401,8 +546,9 @@
       const L = this.L, el = this.el.bind(this);
       a = a ? a.slice() : [0, 0, 0];
       const types = [[0, L.actNone], [1, L.actKey], [2, L.actMedia], [3, L.actWheel], [4, L.actPan]];
+      if (this.v2) types.push([5, L.actDelay], [6, L.actText], [7, L.actNext], [8, L.actPrev]);
       const wrap = el("div", { class: "act" });
-      const type = el("select", { onchange: () => { const t = +type.value; a = [t, 0, t === 2 ? MEDIA_CODES[0] : (t >= 3 ? 1 : 0)]; set(a); fill(); } },
+      const type = el("select", { onchange: () => { const t = +type.value; a = [t, 0, t === 2 ? MEDIA_CODES[0] : (t === 3 || t === 4 ? 1 : (t === 5 ? 100 : 0))]; set(a); fill(); } },
         ...types.map(([v, n]) => el("option", { value: v, selected: v === a[0] }, n)));
       const body = el("span", { style: "display:flex;flex:1;gap:6px;align-items:center;min-width:0" });
       if (arrow) wrap.append(el("span", { class: "muted", style: "flex:none;font-size:15px", title: arrow === "←" ? L.left : L.right }, arrow));
@@ -435,6 +581,12 @@
         } else if (a[0] === 3 || a[0] === 4) {
           body.append(el("input", { type: "number", min: -20, max: 20, value: a[2] || 1, oninput: e => { a = [a[0], 0, +e.target.value || 1]; set(a); } }),
             el("span", { class: "muted" }, L.notches + (a[0] === 3 ? " (+ ↓)" : " (+ →)")));
+        } else if (a[0] === 5) {
+          body.append(el("input", { type: "number", min: 10, max: 2000, step: 10, value: a[2] || 100, oninput: e => { a = [5, 0, Math.max(10, Math.min(2000, +e.target.value || 100))]; set(a); } }),
+            el("span", { class: "muted" }, L.ms));
+        } else if (a[0] === 6) {
+          body.append(el("select", { style: "flex:1", onchange: e => { a = [6, 0, +e.target.value]; set(a); } },
+            el("option", { value: 0, selected: a[2] === 0 }, L.text1), el("option", { value: 1, selected: a[2] === 1 }, L.text2)));
         } else body.append(el("span", { class: "muted" }, L.none));
       };
       fill();
@@ -466,7 +618,7 @@
     }
 
     loadDemo() {   // podglad bez urzadzenia (atrybut demo)
-      this.cfg = this.normalize({ fw: "DFTv1.2 (demo)", settings: { theme: 7, host: 1, bri: 80, scrollInv: false, rgbMode: 1, rgbBri: 60, break: 5, focus: 25, autoSwitch: true, clock: true, standup: true },
+      this.cfg = this.normalize({ fw: "DFTv1.3 (demo)", cfgv: 2, maxSteps: 6, settings: { theme: 7, host: 1, bri: 80, scrollInv: false, rgbMode: 1, rgbBri: 60, break: 5, focus: 25, autoSwitch: true, clock: true, standup: true },
         themes: ["Ocean", "Amber", "Mint", "Violet", "Rose", "Mono", "Color", "FalbaTech"], rgbModes: ["Off", "Follow", "Ambient", "Breathe", "Rainbow"],
         pages: ["EVERYDAY", "CREATIVE", "DESIGN", "SYSTEM", "CUSTOM"],
         apps: [{ i: 0, name: "Pomodoro", page: 0, hidden: 0 }, { i: 1, name: "Smart Scroll", page: 0, hidden: 0 }, { i: 6, name: "DaVinci", page: 1, hidden: 0 }, { i: 17, name: "Settings", page: 3, hidden: 0, fixed: true }],
