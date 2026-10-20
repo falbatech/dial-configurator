@@ -28,6 +28,10 @@
       bri: "Screen brightness", rgb: "RGB ring", rgbBri: "RGB brightness", focus: "Pomodoro focus (min)", brk: "Pomodoro break (min)",
       auto: "Auto profile (with DIAL FT Helper)", clock: "Clock face when idle", standup: "Stand-up reminder", inv: "Invert scroll",
       home: "Home screen", homeHint: "Untick apps you do not use - their icons disappear from DIAL FT. Settings always stays.",
+      homeLay: "Home screen - desktops", layHint: "Group apps on desktops your way: drag an icon to another desktop or between icons (or click an icon, then click where it should go). Up to {p} desktops with {n} icons each; click a desktop name to rename it. Icons in Hidden do not appear on DIAL FT - Settings always stays.",
+      addPage: "+ Add desktop", resetLay: "Restore default layout", hiddenT: "Hidden", hiddenEmpty: "Drag icons here to hide them",
+      pageFull: "This desktop already has {n} icons", fixedApp: "Settings always stays on a desktop", emptyPage: "empty - skipped on DIAL FT", newPage: "DESKTOP",
+      pgLeft: "Move desktop left", pgRight: "Move desktop right", pgDel: "Remove desktop (its icons go to Hidden)",
       profiles: "Your own profiles",
       profilesHint: "Make DIAL FT work with any program. Each profile has up to 4 modes (click the dial on the device to switch). For every mode choose what turning <b>left</b> and <b>right</b> does. Click a key field and press the shortcut on your keyboard. <b>Ctrl/Cmd</b> is sent as Cmd on Mac and Ctrl on Windows (set \"Computer\" above). Profiles appear on the CUSTOM page.",
       profile: "Profile", name: "Name (12)", icon: "Icon", color: "Color", program: "Program (for auto profile, optional)",
@@ -36,6 +40,10 @@
       notches: "notches", none: "—",
       actNone: "Nothing", actKey: "Key", actMedia: "Media", actWheel: "Scroll ↕", actPan: "Scroll ↔",
       actDelay: "Pause", actText: "Type text", actNext: "Next mode", actPrev: "Previous mode", ms: "ms",
+      actMidiCc: "MIDI CC", actMidiNote: "MIDI note", ch: "ch", ccNo: "CC", val: "value", note: "note", vel: "velocity",
+      midiT: "MIDI", midiHint: "DIAL FT is also a USB MIDI device (no drivers). In the MIDI profile the dial sends one CC, the touch ring a second CC and a click sends a note. Use MIDI learn in your DAW.",
+      midiCh: "Channel", midiCcA: "Dial CC", midiCcB: "Ring CC", midiMode: "Mode", midiAbs: "Absolute 0–127", midiRelO: "Relative (DAW)",
+      midiClick: "Click", midiClickNote: "Note on / off", midiClickCc: "Dial CC 0 / 127", midiNote: "Note (0–127, 60 = C4)", midiSens: "Sensitivity",
       aLeft: "Turn left", aRight: "Turn right", aTap: "Tap screen", aClick: "Click dial", clickDefault: "next mode (default)",
       addStep: "+ step", empty: "nothing", texts: "Texts for “Type text” (ASCII)", text1: "Text 1", text2: "Text 2",
       template: "Start from template…", templateAsk: "Replace this profile with the template?",
@@ -50,8 +58,8 @@
       upd3: "When it says it is done, unplug and plug in DIAL FT again.",
       prepare: "1. Prepare", install: "2. Install update", available: "Available:", prepared: "DIAL FT is in update mode. Now click 2. Install update.",
       cancelled: "Cancelled.",
-      helperT: "DIAL FT Helper (optional, macOS)", helperHint: "A small background program that adds Spotify cover art and song title, automatic profile when you switch apps, and the clock. Everything else works without it.",
-      download: "Download for macOS", guideT: "User guide", guideHint: "Controls, every profile, the configurator, updates and troubleshooting.",
+      helperT: "DIAL FT Helper (optional)", helperHint: "A small background program that adds automatic profile when you switch apps, Spotify cover art and song title, and the clock. Everything else works without it.",
+      download: "Download for macOS", downloadWin: "Download for Windows", downloadLinux: "Download for Linux", guideT: "User guide", guideHint: "Controls, every profile, the configurator, updates and troubleshooting.",
       noChanges: "All changes saved", unsaved: "Unsaved changes", undo: "Undo", save: "Save to DIAL FT",
       icons: ["Speaker", "Arrows", "Color wheels", "Chip", "Timer", "Sliders", "Brush", "Photo", "Media", "Arrows (horizontal)", "Pixel grid", "Spotify", "Microphone", "Monitor", "Film", "Clapper", "Figma dots", "Orbit", "Cube", "Star"],
       media: ["Play / Pause", "Next track", "Previous track", "Volume up", "Volume down", "Mute", "Brightness up", "Brightness down"],
@@ -68,6 +76,10 @@
       bri: "Jasność ekranu", rgb: "Pierścień RGB", rgbBri: "Jasność RGB", focus: "Pomodoro - skupienie (min)", brk: "Pomodoro - przerwa (min)",
       auto: "Automatyczny profil (z DIAL FT Helper)", clock: "Zegar w spoczynku", standup: "Przypomnienie o przerwie", inv: "Odwróć przewijanie",
       home: "Ekran HOME", homeHint: "Odznacz aplikacje, których nie używasz - ich ikony znikną z DIAL FT. Ustawienia zostają zawsze.",
+      homeLay: "Ekran HOME - pulpity", layHint: "Pogrupuj aplikacje na pulpitach po swojemu: przeciągnij ikonę na inny pulpit albo między ikony (albo kliknij ikonę, a potem miejsce, gdzie ma trafić). Do {p} pulpitów po {n} ikon; kliknij nazwę pulpitu, żeby ją zmienić. Ikony w sekcji Ukryte nie pojawiają się na DIAL FT - Ustawienia zostają zawsze.",
+      addPage: "+ Dodaj pulpit", resetLay: "Przywróć domyślny układ", hiddenT: "Ukryte", hiddenEmpty: "Przeciągnij tu ikony, żeby je ukryć",
+      pageFull: "Na tym pulpicie jest już {n} ikon", fixedApp: "Ustawienia muszą zostać na pulpicie", emptyPage: "pusty - DIAL FT go pominie", newPage: "PULPIT",
+      pgLeft: "Przesuń pulpit w lewo", pgRight: "Przesuń pulpit w prawo", pgDel: "Usuń pulpit (ikony trafią do Ukrytych)",
       profiles: "Twoje profile",
       profilesHint: "DIAL FT może współpracować z dowolnym programem. Każdy profil ma do 4 trybów (zmieniasz je klikiem pokrętła). Dla każdego trybu wybierz, co robi obrót w <b>lewo</b> i w <b>prawo</b>. Kliknij pole klawisza i naciśnij skrót na klawiaturze. <b>Ctrl/Cmd</b> jest wysyłane jako Cmd na Macu i Ctrl w Windows (ustawienie „Komputer” wyżej). Profile pojawiają się na stronie CUSTOM.",
       profile: "Profil", name: "Nazwa (12)", icon: "Ikona", color: "Kolor", program: "Program (do automatycznego profilu, opcjonalnie)",
@@ -76,6 +88,10 @@
       notches: "ząbki", none: "—",
       actNone: "Nic", actKey: "Klawisz", actMedia: "Multimedia", actWheel: "Kółko ↕", actPan: "Kółko ↔",
       actDelay: "Pauza", actText: "Wpisz tekst", actNext: "Następny tryb", actPrev: "Poprzedni tryb", ms: "ms",
+      actMidiCc: "MIDI CC", actMidiNote: "MIDI nuta", ch: "kan.", ccNo: "CC", val: "wartość", note: "nuta", vel: "siła",
+      midiT: "MIDI", midiHint: "DIAL FT jest też urządzeniem USB MIDI (bez sterowników). W profilu MIDI pokrętło wysyła jeden CC, pierścień dotykowy drugi CC, a klik nutę. W programie użyj funkcji MIDI learn.",
+      midiCh: "Kanał", midiCcA: "CC pokrętła", midiCcB: "CC pierścienia", midiMode: "Tryb", midiAbs: "Bezwzględny 0–127", midiRelO: "Względny (DAW)",
+      midiClick: "Klik", midiClickNote: "Nuta wł. / wył.", midiClickCc: "CC pokrętła 0 / 127", midiNote: "Nuta (0–127, 60 = C4)", midiSens: "Czułość",
       aLeft: "Obrót w lewo", aRight: "Obrót w prawo", aTap: "Tapnięcie", aClick: "Klik pokrętła", clickDefault: "następny tryb (domyślnie)",
       addStep: "+ krok", empty: "nic", texts: "Teksty do kroku „Wpisz tekst” (bez polskich znaków)", text1: "Tekst 1", text2: "Tekst 2",
       template: "Zacznij od szablonu…", templateAsk: "Zastąpić ten profil szablonem?",
@@ -90,8 +106,8 @@
       upd3: "Po komunikacie o zakończeniu odłącz i podłącz DIAL FT.",
       prepare: "1. Przygotuj", install: "2. Zainstaluj aktualizację", available: "Dostępna:", prepared: "DIAL FT jest w trybie aktualizacji. Kliknij 2. Zainstaluj aktualizację.",
       cancelled: "Anulowano.",
-      helperT: "DIAL FT Helper (opcjonalny, macOS)", helperHint: "Mały program w tle: okładki i tytuły Spotify, automatyczna zmiana profilu przy przełączaniu aplikacji oraz zegar. Wszystko inne działa bez niego.",
-      download: "Pobierz na macOS", guideT: "Instrukcja obsługi", guideHint: "Sterowanie, wszystkie profile, konfigurator, aktualizacje i rozwiązywanie problemów.",
+      helperT: "DIAL FT Helper (opcjonalny)", helperHint: "Mały program w tle: automatyczna zmiana profilu przy przełączaniu aplikacji, okładki i tytuły Spotify oraz zegar. Wszystko inne działa bez niego.",
+      download: "Pobierz na macOS", downloadWin: "Pobierz na Windows", downloadLinux: "Pobierz na Linux", guideT: "Instrukcja obsługi", guideHint: "Sterowanie, wszystkie profile, konfigurator, aktualizacje i rozwiązywanie problemów.",
       noChanges: "Wszystko zapisane", unsaved: "Niezapisane zmiany", undo: "Cofnij", save: "Zapisz w DIAL FT",
       icons: ["Głośnik", "Strzałki", "Koła kolorów", "Układ scalony", "Minutnik", "Suwaki", "Pędzel", "Zdjęcie", "Multimedia", "Strzałki (poziomo)", "Siatka pikseli", "Spotify", "Mikrofon", "Monitor", "Taśma filmowa", "Klaps", "Kropki Figma", "Orbita", "Sześcian", "Gwiazda"],
       media: ["Odtwarzaj / pauza", "Następny utwór", "Poprzedni utwór", "Głośniej", "Ciszej", "Wycisz", "Jaśniej", "Ciemniej"],
@@ -188,6 +204,23 @@
   .apps { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; }
   .app { display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: var(--panel2); border: 1px solid var(--line); border-radius: 10px; font-size: 14px; }
   .app small { color: var(--muted); margin-left: auto; font-size: 11px; }
+  .lay { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+  .pg { background: var(--panel2); border: 1px solid var(--line); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; gap: 8px; min-height: 120px; transition: border-color .12s, background .12s; }
+  .pg.over, .pg.target { border-color: var(--acc); background: var(--accbg); }
+  .pg.target { cursor: copy; }
+  .pghead { display: flex; gap: 4px; align-items: center; }
+  .pghead input { flex: 1; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; padding: 5px 7px; font-size: 13px; background: var(--panel); }
+  .pghead button { padding: 3px 7px; font-size: 12px; }
+  .pgcount { font-size: 11px; color: var(--muted); flex: none; min-width: 26px; text-align: right; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; align-content: flex-start; flex: 1; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; background: var(--panel); border: 1px solid var(--line); font-size: 13px; cursor: grab; user-select: none; }
+  .chip:hover { border-color: var(--acc); }
+  .chip.sel { outline: 2px solid var(--acc); background: var(--accbg); }
+  .chip.drag { opacity: .4; }
+  .chip.fixed { cursor: grab; font-weight: 600; }
+  .chip i { width: 8px; height: 8px; border-radius: 50%; background: var(--acc); flex: none; }
+  .pg.tray { grid-column: 1 / -1; min-height: 0; border-style: dashed; }
+  .pgempty { color: var(--muted); font-size: 12px; }
   .prof { border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin-top: 12px; background: var(--panel2); }
   .prof.off { opacity: .6; }
   .head { display: flex; gap: 12px; align-items: end; flex-wrap: wrap; }
@@ -236,6 +269,9 @@
     render0() {
       const L = this.L, a = n => this.getAttribute(n);
       const manifest = a("manifest"), helper = a("helper"), gpl = a("guide-pl"), gen = a("guide-en");
+      // wersje Windows / Linux: z atrybutow albo z adresu wersji macOS (...-mac.zip -> ...-windows.zip / ...-linux.zip)
+      const helperWin = a("helper-win") || (helper && helper.includes("-mac.zip") ? helper.replace("-mac.zip", "-windows.zip") : "");
+      const helperLinux = a("helper-linux") || (helper && helper.includes("-mac.zip") ? helper.replace("-mac.zip", "-linux.zip") : "");
       this.root.innerHTML = `<style>${CSS}</style>
       <div class="wrap ${a("theme") === "dark" ? "dark" : ""}">
         <div class="top"><div class="logo"></div><div><h1>${L.title}</h1><div class="sub">${L.sub}</div></div>
@@ -259,7 +295,17 @@
               <label class="switch"><input id="s_standup" type="checkbox">${L.standup}</label>
               <label class="switch"><input id="s_scrollInv" type="checkbox">${L.inv}</label>
             </div></section>
-          <section><h2>${L.home}</h2><p class="hint">${L.homeHint}</p><div id="apps" class="apps"></div></section>
+          <section id="midisec" class="hidden"><h2>${L.midiT}</h2><p class="hint">${L.midiHint}</p>
+            <div class="grid">
+              <label class="field">${L.midiCh}<input id="m_midiCh" type="number" min="1" max="16"></label>
+              <label class="field">${L.midiCcA}<input id="m_midiCcA" type="number" min="0" max="127"></label>
+              <label class="field">${L.midiCcB}<input id="m_midiCcB" type="number" min="0" max="127"></label>
+              <label class="field">${L.midiMode}<select id="m_midiRel"><option value="0">${L.midiAbs}</option><option value="1">${L.midiRelO}</option></select></label>
+              <label class="field">${L.midiClick}<select id="m_midiClickNote"><option value="1">${L.midiClickNote}</option><option value="0">${L.midiClickCc}</option></select></label>
+              <label class="field">${L.midiNote}<input id="m_midiNote" type="number" min="0" max="127"></label>
+              <label class="field">${L.midiSens}<select id="m_midiSens"><option value="0">LOW</option><option value="1">MEDIUM</option><option value="2">HIGH</option></select></label>
+            </div></section>
+          <section><h2 id="homeT">${L.home}</h2><p class="hint" id="homeHint">${L.homeHint}</p><div id="apps"></div></section>
           <section><h2>${L.profiles}</h2><p class="hint">${L.profilesHint} <span id="seqhint"></span></p>
             <div class="row"><button id="exportp" class="small ghost">${L.exportB}</button>
               <label class="btn small ghost" style="cursor:pointer">${L.importB}<input id="importp" type="file" accept=".json,application/json" class="hidden"></label>
@@ -272,7 +318,10 @@
           <div class="row"><button id="prepare" class="ghost">${L.prepare}</button>
           <esp-web-install-button id="ewt" manifest="${manifest}"><button slot="activate">${L.install}</button><span slot="unsupported" class="muted">${L.noSupport}</span></esp-web-install-button>
           <span id="fwinfo" class="muted"></span></div></section>` : ""}
-        ${helper ? `<section><h2>${L.helperT}</h2><p class="hint">${L.helperHint}</p><a class="btn" href="${helper}">${L.download}</a></section>` : ""}
+        ${helper ? `<section><h2>${L.helperT}</h2><p class="hint">${L.helperHint}</p><div class="row">
+          <a class="btn" href="${helper}">${L.download}</a>
+          ${helperWin ? `<a class="btn" href="${helperWin}">${L.downloadWin}</a>` : ""}
+          ${helperLinux ? `<a class="btn" href="${helperLinux}">${L.downloadLinux}</a>` : ""}</div></section>` : ""}
         ${gpl || gen ? `<section><h2>${L.guideT}</h2><p class="hint">${L.guideHint}</p><div class="row">
           ${gpl ? `<a class="btn" href="${gpl}" target="_blank" rel="noopener">Polski (PDF)</a>` : ""}${gen ? `<a class="btn" href="${gen}" target="_blank" rel="noopener">English (PDF)</a>` : ""}</div></section>` : ""}
       </div>`;
@@ -404,7 +453,11 @@
       const ask = line => this.request(line, l => l.startsWith("CFG OK") || l.startsWith("CFG ERR"), 6000);
       let r;
       if (this.v2) {   // ustawienia, potem kazdy profil osobnym wierszem (makra sa dlugie)
-        r = await ask("CFG SET " + JSON.stringify({ settings: c.settings, hidden: c.apps.filter(a => a.hidden).map(a => a.i) }));
+        const head = { settings: c.settings };
+        if (!c.layout) head.hidden = c.apps.filter(a => a.hidden).map(a => a.i);
+        else if (c.layoutReset) head.layoutReset = true;
+        else if (JSON.stringify(c.layout) !== JSON.stringify(JSON.parse(this.original).layout)) head.layout = c.layout.map(p => ({ name: p.name, apps: p.apps }));
+        r = await ask("CFG SET " + JSON.stringify(head));
         for (let i = 0; ok(r) && i < c.custom.length; i++) r = await ask("CFG SET " + JSON.stringify({ slot: i, profile: prof(c.custom[i]) }));
       } else {         // firmware 1.2: jedna akcja na obrot, tap wspolny dla profilu
         const first = q => q.length ? q[0] : [0, 0, 0];
@@ -412,7 +465,7 @@
           custom: c.custom.map(p => ({ used: p.used ? 1 : 0, name: p.name, icon: p.icon, color: p.color, app: p.app,
             tap: first(p.modes[0].tap), modes: p.modes.map(m => ({ name: m.name, l: first(m.l), r: first(m.r) })) })) }));
       }
-      if (ok(r)) { this.original = JSON.stringify(this.cfg); this.setStatus(L.saved, "ok"); }
+      if (ok(r)) { c.layoutReset = false; this.original = JSON.stringify(this.cfg); this.setStatus(L.saved, "ok"); }
       else this.setStatus(r || L.failed, "err");
       this.markDirty();
     }
@@ -432,7 +485,7 @@
           if (!d || !Array.isArray(d.custom)) throw 0;
           const n = this.cfg.custom.length;
           const tmp = this.normalize({ cfgv: this.v2 ? 2 : 1, maxSteps: this.maxSteps, custom: d.custom.slice(0, n) }).custom;
-          for (let i = 0; i < n; i++) if (tmp[i]) this.cfg.custom[i] = tmp[i];
+          for (let i = 0; i < n; i++) if (tmp[i]) { this.cfg.custom[i] = tmp[i]; if (this.cfg.layout) { if (tmp[i].used) this.layPlace(100 + i); else this.layRemove(100 + i); } }
           this.render(); this.markDirty();
         } catch (e) { alert(this.L.importErr); }
       };
@@ -464,12 +517,119 @@
       for (const k of ["bri", "rgbBri", "focus", "break"]) $("s_" + k).value = s[k];
       for (const k of ["autoSwitch", "clock", "standup", "scrollInv"]) $("s_" + k).checked = !!s[k];
       $("s_bri_v").textContent = s.bri + "%"; $("s_rgbBri_v").textContent = s.rgbBri + "%";
-      $("apps").replaceChildren(...this.cfg.apps.map(a => el("label", { class: "app" },
-        el("input", { type: "checkbox", checked: !a.hidden, disabled: !!a.fixed, onchange: e => { a.hidden = e.target.checked ? 0 : 1; this.markDirty(); } }),
-        a.name, el("small", {}, this.cfg.pages[a.page] || ""))));
+      const hasMidi = s.midiCh != null;
+      $("midisec").classList.toggle("hidden", !hasMidi);
+      if (hasMidi) for (const k of ["midiCh", "midiCcA", "midiCcB", "midiNote", "midiSens"]) $("m_" + k).value = s[k];
+      if (hasMidi) { $("m_midiRel").value = s.midiRel ? 1 : 0; $("m_midiClickNote").value = s.midiClickNote ? 1 : 0; }
+      if (this.cfg.layout) this.drawLayout();
+      else {   // firmware bez ukladu pulpitow (do DFTv1.4): tylko ukrywanie ikon
+        $("homeT").textContent = this.L.home; $("homeHint").textContent = this.L.homeHint;
+        $("apps").replaceChildren(el("div", { class: "apps" }, ...this.cfg.apps.map(a => el("label", { class: "app" },
+          el("input", { type: "checkbox", checked: !a.hidden, disabled: !!a.fixed, onchange: e => { a.hidden = e.target.checked ? 0 : 1; this.markDirty(); } }),
+          a.name, el("small", {}, this.cfg.pages[a.page] || "")))));
+      }
       $("profiles").replaceChildren(...this.cfg.custom.map((c, i) => this.renderProfile(c, i)));
       $("seqhint").textContent = this.v2 ? this.L.seqHint.replace("{n}", this.maxSteps) : "";
       $("macronote").classList.toggle("hidden", this.v2);
+    }
+    // ------------------------------------------------------------ pulpity HOME (DFTv1.5+): id wbudowanej = i, profil klienta = 100 + slot
+    layAppName(id) {
+      const c = this.cfg;
+      if (id >= 100) { const p = c.custom[id - 100]; return (p && p.name) || this.L.profile + " " + (id - 99); }
+      return (c.apps.find(a => a.i === id) || {}).name || "?";
+    }
+    layUsable(id) { const c = this.cfg; return id >= 100 ? !!(c.custom[id - 100] && c.custom[id - 100].used) : c.apps.some(a => a.i === id); }
+    layFixed(id) { return id < 100 && !!(this.cfg.apps.find(a => a.i === id) || {}).fixed; }
+    defaultLayout() {   // to samo, co firmware bez wlasnego ukladu
+      const c = this.cfg, per = c.perPage || 6;
+      const pages = c.pages.map(n => ({ name: n, apps: [] }));
+      for (const a of c.apps) if (pages[a.page]) pages[a.page].apps.push(a.i);
+      c.custom.forEach((p, k) => { const pg = pages[k < 6 ? 4 : 5]; if (p.used && pg) pg.apps.push(100 + k); });
+      return pages.filter(p => p.apps.length).map(p => ({ name: p.name, apps: p.apps.slice(0, per) }));
+    }
+    layPlace(id) {   // nowy profil klienta: na ostatni pulpit z wolnym miejscem albo na nowy pulpit
+      const c = this.cfg, per = c.perPage || 6;
+      if (!c.layout || c.layout.some(p => p.apps.includes(id))) return;
+      let pg = [...c.layout].reverse().find(p => p.apps.length < per);
+      if (!pg && c.layout.length < (c.maxPages || 6)) { pg = { name: "CUSTOM", apps: [] }; c.layout.push(pg); }
+      if (pg) { pg.apps.push(id); c.layoutReset = false; }
+    }
+    layProfile(i) {   // profil klienta wlaczony -> ikona na pulpit, wylaczony -> znika z ukladu
+      if (!this.cfg.layout) return;
+      if (this.cfg.custom[i].used) this.layPlace(100 + i); else this.layRemove(100 + i);
+      this.drawLayout();
+    }
+    layRemove(id) { if (this.cfg.layout) for (const p of this.cfg.layout) { const k = p.apps.indexOf(id); if (k >= 0) p.apps.splice(k, 1); } }
+    drawLayout() {
+      const L = this.L, el = this.el.bind(this), c = this.cfg, per = c.perPage || 6, maxP = c.maxPages || 6;
+      this.$("homeT").textContent = L.homeLay;
+      this.$("homeHint").textContent = L.layHint.replace("{p}", maxP).replace("{n}", per);
+      const changed = () => { c.layoutReset = false; this.markDirty(); this.drawLayout(); };
+      // przeniesienie: to = indeks pulpitu albo -1 (Ukryte), at = pozycja wsrod widocznych ikon pulpitu
+      const moveTo = (id, to, at, node) => {
+        const blocked = msg => { this.laySel = null; this.drawLayout(); this.setStatus(msg, "err"); };
+        if (to < 0 && this.layFixed(id)) return blocked(L.fixedApp);
+        const dst = to >= 0 ? c.layout[to] : null;
+        if (dst && !dst.apps.includes(id) && dst.apps.length >= per) return blocked(L.pageFull.replace("{n}", per));
+        if (dst) { const k = dst.apps.indexOf(id); if (k >= 0 && at != null && at > k) at--; }
+        this.layRemove(id);
+        if (dst) dst.apps.splice(at == null ? dst.apps.length : Math.min(at, dst.apps.length), 0, id);
+        this.laySel = null;
+        changed();
+      };
+      const chip = (id, to, idx) => {
+        const cust = id >= 100 ? c.custom[id - 100] : null;
+        const n = el("span", { class: "chip" + (this.layFixed(id) ? " fixed" : "") + (this.laySel === id ? " sel" : ""), draggable: "true" },
+          cust ? el("i", { style: "background:" + (cust.color || "var(--acc)") }) : null, this.layAppName(id));
+        n.addEventListener("dragstart", e => { e.dataTransfer.setData("text/plain", String(id)); e.dataTransfer.effectAllowed = "move"; n.classList.add("drag"); });
+        n.addEventListener("dragend", () => n.classList.remove("drag"));
+        n.addEventListener("drop", e => { e.preventDefault(); e.stopPropagation(); n.closest(".pg").classList.remove("over");
+          const d = +e.dataTransfer.getData("text/plain"); if (d !== id) moveTo(d, to, idx, n.closest(".pg")); });
+        n.addEventListener("click", e => {
+          e.stopPropagation();
+          if (this.laySel == null || this.laySel === id) { this.laySel = this.laySel === id ? null : id; this.drawLayout(); }
+          else moveTo(this.laySel, to, idx, n.closest(".pg"));
+        });
+        return n;
+      };
+      const zone = (cls, to, head, ids, emptyText) => {
+        const z = el("div", { class: "pg " + cls + (this.laySel != null ? " target" : "") }, head);
+        const list = el("div", { class: "chips" }, ...ids.map((id, k) => chip(id, to, k)));
+        if (!ids.length) list.append(el("span", { class: "pgempty" }, emptyText));
+        z.append(list);
+        z.addEventListener("dragover", e => { e.preventDefault(); z.classList.add("over"); });
+        z.addEventListener("dragleave", e => { if (!z.contains(e.relatedTarget)) z.classList.remove("over"); });
+        z.addEventListener("drop", e => { e.preventDefault(); z.classList.remove("over"); moveTo(+e.dataTransfer.getData("text/plain"), to, null, z); });
+        z.addEventListener("click", () => { if (this.laySel != null) moveTo(this.laySel, to, null, z); });
+        return z;
+      };
+      const board = el("div", { class: "lay" });
+      c.layout.forEach((p, k) => {
+        const ids = p.apps.filter(id => this.layUsable(id));
+        const name = el("input", { value: p.name, maxlength: 12, onclick: e => e.stopPropagation(), oninput: e => {
+          const v = e.target.value.toUpperCase().normalize("NFKD").replace(/[^\x20-\x7e]/g, "").slice(0, 12);
+          if (v !== e.target.value) e.target.value = v;
+          p.name = v; c.layoutReset = false; this.markDirty();
+        } });
+        const btn = (txt, title, fn, dis) => el("button", { class: "small ghost", title, disabled: !!dis, onclick: e => { e.stopPropagation(); fn(); } }, txt);
+        const swap = d => { [c.layout[k], c.layout[k + d]] = [c.layout[k + d], c.layout[k]]; changed(); };
+        const del = () => {
+          const fixed = p.apps.filter(id => this.layFixed(id));
+          c.layout.splice(k, 1);
+          for (const id of fixed) { const pg = c.layout.find(q => q.apps.length < per); if (pg) pg.apps.push(id); else c.layout.push({ name: p.name, apps: [id] }); }
+          changed();
+        };
+        board.append(zone("", k, el("div", { class: "pghead" }, name, el("span", { class: "pgcount" }, ids.length + "/" + per),
+          btn("‹", L.pgLeft, () => swap(-1), k === 0), btn("›", L.pgRight, () => swap(1), k === c.layout.length - 1),
+          btn("×", L.pgDel, del, c.layout.length < 2)), ids, L.emptyPage));
+      });
+      const placed = new Set(c.layout.flatMap(p => p.apps));
+      const hidden = [...c.apps.map(a => a.i), ...c.custom.map((p, k) => 100 + k)].filter(id => this.layUsable(id) && !placed.has(id));
+      board.append(zone("tray", -1, el("div", { class: "pghead" }, el("b", { style: "font-size:13px" }, L.hiddenT)), hidden, L.hiddenEmpty));
+      const tools = el("div", { class: "row", style: "margin-top:12px" },
+        c.layout.length < maxP ? el("button", { class: "small ghost", onclick: () => { c.layout.push({ name: L.newPage + " " + (c.layout.length + 1), apps: [] }); changed(); } }, L.addPage) : null,
+        el("button", { class: "small ghost", onclick: () => { c.layout = this.defaultLayout(); this.laySel = null; c.layoutReset = true; this.markDirty(); this.drawLayout(); } }, L.resetLay));
+      this.$("apps").replaceChildren(board, tools);
     }
     renderProfile(c, i) {
       const L = this.L, el = this.el.bind(this), ch = () => this.markDirty();
@@ -480,11 +640,11 @@
         if (!t || (c.used && !confirm(L.templateAsk))) return;
         Object.assign(c, JSON.parse(JSON.stringify({ used: 1, name: t.name.slice(0, 12), icon: t.icon, color: t.color, app: t.app || "",
           texts: t.texts || ["", ""], modes: t.modes.map(m => ({ name: m.name, l: m.l || [], r: m.r || [], tap: m.tap || [], click: m.click || [] })) })));
-        ch(); redraw();
+        this.layProfile(i); ch(); redraw();
       } }, el("option", { value: "" }, L.template), ...TEMPLATES.map((t, k) => el("option", { value: k }, t.name)));
       box.append(el("div", { class: "head" },
-        el("label", { class: "switch" }, el("input", { type: "checkbox", checked: !!c.used, onchange: e => { c.used = e.target.checked ? 1 : 0; ch(); redraw(); } }), L.profile + " " + (i + 1)),
-        el("label", { class: "field" }, L.name, el("input", { value: c.name || "", maxlength: 12, oninput: e => { c.name = e.target.value; ch(); } })),
+        el("label", { class: "switch" }, el("input", { type: "checkbox", checked: !!c.used, onchange: e => { c.used = e.target.checked ? 1 : 0; this.layProfile(i); ch(); redraw(); } }), L.profile + " " + (i + 1)),
+        el("label", { class: "field" }, L.name, el("input", { value: c.name || "", maxlength: 12, oninput: e => { c.name = e.target.value; ch(); if (this.cfg.layout) this.drawLayout(); } })),
         el("label", { class: "field" }, L.icon, el("select", { onchange: e => { c.icon = +e.target.value; ch(); } },
           ...L.icons.map((n, k) => el("option", { value: k, selected: k === c.icon }, n)))),
         el("label", { class: "field" }, L.color, el("input", { type: "color", value: c.color, oninput: e => { c.color = e.target.value; ch(); } })),
@@ -544,8 +704,9 @@
       a = a ? a.slice() : [0, 0, 0];
       const types = [[0, L.actNone], [1, L.actKey], [2, L.actMedia], [3, L.actWheel], [4, L.actPan]];
       if (this.v2) types.push([5, L.actDelay], [6, L.actText], [7, L.actNext], [8, L.actPrev]);
+      if (this.cfg && this.cfg.settings && this.cfg.settings.midiCh != null) types.push([9, L.actMidiCc], [10, L.actMidiNote]);
       const wrap = el("div", { class: "act" });
-      const type = el("select", { onchange: () => { const t = +type.value; a = [t, 0, t === 2 ? MEDIA_CODES[0] : (t === 3 || t === 4 ? 1 : (t === 5 ? 100 : 0))]; set(a); fill(); } },
+      const type = el("select", { onchange: () => { const t = +type.value; a = [t, 0, t === 2 ? MEDIA_CODES[0] : (t === 3 || t === 4 ? 1 : (t === 5 ? 100 : (t === 9 ? 20 * 128 + 127 : (t === 10 ? 60 * 128 + 100 : 0))))]; set(a); fill(); } },
         ...types.map(([v, n]) => el("option", { value: v, selected: v === a[0] }, n)));
       const body = el("span", { style: "display:flex;flex:1;gap:6px;align-items:center;min-width:0" });
       if (arrow) wrap.append(el("span", { class: "muted", style: "flex:none;font-size:15px", title: arrow === "←" ? L.left : L.right }, arrow));
@@ -584,6 +745,13 @@
         } else if (a[0] === 6) {
           body.append(el("select", { style: "flex:1", onchange: e => { a = [6, 0, +e.target.value]; set(a); } },
             el("option", { value: 0, selected: a[2] === 0 }, L.text1), el("option", { value: 1, selected: a[2] === 1 }, L.text2)));
+        } else if (a[0] === 9 || a[0] === 10) {   // MIDI: kanal (m+1), numer CC / nuta (c>>7), wartosc / sila (c&127)
+          const num = (v, lo, hi, w, on) => el("input", { type: "number", min: lo, max: hi, value: v, style: `width:${w}px`, oninput: on });
+          const hi7 = a[2] >> 7, lo7 = a[2] & 127;
+          const upd = (ch, x, y) => { a = [a[0], Math.max(0, Math.min(15, ch)), (Math.max(0, Math.min(127, x)) << 7) | Math.max(0, Math.min(127, y))]; set(a); };
+          body.append(el("span", { class: "muted" }, L.ch), num((a[1] & 15) + 1, 1, 16, 48, e => upd((+e.target.value || 1) - 1, a[2] >> 7, a[2] & 127)),
+            el("span", { class: "muted" }, a[0] === 9 ? L.ccNo : L.note), num(hi7, 0, 127, 56, e => upd(a[1], +e.target.value || 0, a[2] & 127)),
+            el("span", { class: "muted" }, a[0] === 9 ? L.val : L.vel), num(lo7, 0, 127, 56, e => upd(a[1], a[2] >> 7, +e.target.value || 0)));
         } else body.append(el("span", { class: "muted" }, L.none));
       };
       fill();
@@ -597,6 +765,11 @@
       });
       num("s_theme", "theme"); num("s_host", "host"); num("s_rgbMode", "rgbMode"); num("s_bri", "bri"); num("s_rgbBri", "rgbBri");
       num("s_focus", "focus"); num("s_break", "break");
+      const lim = (v, lo, hi) => Math.max(lo, Math.min(hi, Math.round(+v || 0)));
+      for (const [k, lo, hi] of [["midiCh", 1, 16], ["midiCcA", 0, 127], ["midiCcB", 0, 127], ["midiNote", 0, 127], ["midiSens", 0, 2]])
+        this.$("m_" + k).addEventListener("input", e => { this.cfg.settings[k] = lim(e.target.value, lo, hi); this.markDirty(); });
+      for (const k of ["midiRel", "midiClickNote"])
+        this.$("m_" + k).addEventListener("input", e => { this.cfg.settings[k] = e.target.value === "1"; this.markDirty(); });
       for (const k of ["autoSwitch", "clock", "standup", "scrollInv"])
         this.$("s_" + k).addEventListener("change", e => { this.cfg.settings[k] = e.target.checked; this.markDirty(); });
     }
@@ -615,10 +788,13 @@
     }
 
     loadDemo() {   // podglad bez urzadzenia (atrybut demo)
-      this.cfg = this.normalize({ fw: "DFTv1.3 (demo)", cfgv: 2, maxSteps: 6, settings: { theme: 7, host: 1, bri: 80, scrollInv: false, rgbMode: 1, rgbBri: 60, break: 5, focus: 25, autoSwitch: true, clock: true, standup: true },
+      this.cfg = this.normalize({ fw: "DFTv1.5 (demo)", cfgv: 2, maxSteps: 6, settings: { theme: 7, host: 1, bri: 80, scrollInv: false, rgbMode: 1, rgbBri: 60, break: 5, focus: 25, autoSwitch: true, clock: true, standup: true, midiCh: 1, midiCcA: 20, midiCcB: 21, midiRel: false, midiClickNote: true, midiNote: 60, midiSens: 1 },
         themes: ["Ocean", "Amber", "Mint", "Violet", "Rose", "Mono", "Color", "FalbaTech"], rgbModes: ["Off", "Follow", "Ambient", "Breathe", "Rainbow"],
-        pages: ["EVERYDAY", "CREATIVE", "DESIGN", "SYSTEM", "CUSTOM"],
-        apps: [{ i: 0, name: "Pomodoro", page: 0, hidden: 0 }, { i: 1, name: "Smart Scroll", page: 0, hidden: 0 }, { i: 6, name: "DaVinci", page: 1, hidden: 0 }, { i: 17, name: "Settings", page: 3, hidden: 0, fixed: true }],
+        pages: ["EVERYDAY", "CREATIVE", "DESIGN", "SYSTEM", "CUSTOM", "CUSTOM 2"],
+        apps: [{ i: 0, name: "Pomodoro", page: 0, hidden: 0 }, { i: 1, name: "Smart Scroll", page: 0, hidden: 0 }, { i: 2, name: "Volume", page: 0, hidden: 0 }, { i: 4, name: "Spotify", page: 0, hidden: 0 },
+          { i: 6, name: "DaVinci", page: 1, hidden: 0 }, { i: 9, name: "Photoshop", page: 1, hidden: 0 }, { i: 13, name: "Blender", page: 2, hidden: 0 }, { i: 16, name: "System", page: 3, hidden: 0 }, { i: 17, name: "Settings", page: 3, hidden: 0, fixed: true }],
+        layoutCustom: false, maxPages: 6, perPage: 6,
+        layout: [{ name: "EVERYDAY", apps: [0, 1, 2, 4] }, { name: "CREATIVE", apps: [6, 9] }, { name: "DESIGN", apps: [13] }, { name: "SYSTEM", apps: [16, 17] }, { name: "CUSTOM", apps: [100] }],
         custom: [{ used: 1, name: "Safari", icon: 19, color: "#518751", app: "com.apple.Safari", tap: [1, 1, 114], modes: [{ name: "TABS", l: [1, 3, 0xB3], r: [1, 1, 0xB3] }, { name: "ZOOM", l: [1, 1, 45], r: [1, 1, 61] }] },
           { used: 0, name: "", icon: 19, color: "#518751", app: "", tap: [0, 0, 0], modes: [] }] });
       this.showUi();
