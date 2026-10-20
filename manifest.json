@@ -6,10 +6,10 @@
     {
       "chipFamily": "ESP32-S3",
       "parts": [
-        { "path": "firmware/bootloader.bin?v=DFTv1.5", "offset": 0 },
-        { "path": "firmware/partitions.bin?v=DFTv1.5", "offset": 32768 },
-        { "path": "firmware/boot_app0.bin?v=DFTv1.5", "offset": 57344 },
-        { "path": "firmware/firmware.bin?v=DFTv1.5", "offset": 65536 }
+        { "path": "firmware/bootloader.bin?v=DFTv1.5-202610201153", "offset": 0 },
+        { "path": "firmware/partitions.bin?v=DFTv1.5-202610201153", "offset": 32768 },
+        { "path": "firmware/boot_app0.bin?v=DFTv1.5-202610201153", "offset": 57344 },
+        { "path": "firmware/firmware.bin?v=DFTv1.5-202610201153", "offset": 65536 }
       ]
     }
   ]
