@@ -268,7 +268,9 @@
     // ------------------------------------------------------------ szkielet
     render0() {
       const L = this.L, a = n => this.getAttribute(n);
-      const manifest = a("manifest"), helper = a("helper"), gpl = a("guide-pl"), gen = a("guide-en");
+      // przegladarka trzyma pliki z jsDelivr do 7 dni: manifest z parametrem godzinowym, zeby aktualizacja widziala nowa wersje
+      const bust = u => u ? u + (u.includes("?") ? "&" : "?") + "h=" + Math.floor(Date.now() / 36e5) : u;
+      const manifest = bust(a("manifest")), helper = a("helper"), gpl = a("guide-pl"), gen = a("guide-en");
       // wersje Windows / Linux: z atrybutow albo z adresu wersji macOS (...-mac.zip -> ...-windows.zip / ...-linux.zip)
       const helperWin = a("helper-win") || (helper && helper.includes("-mac.zip") ? helper.replace("-mac.zip", "-windows.zip") : "");
       const helperLinux = a("helper-linux") || (helper && helper.includes("-mac.zip") ? helper.replace("-mac.zip", "-linux.zip") : "");
