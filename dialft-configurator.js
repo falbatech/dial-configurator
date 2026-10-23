@@ -26,7 +26,7 @@
       introT: "Welcome", intro: "Plug in DIAL FT with the USB cable and click <b>Connect DIAL FT</b>. In the window that opens choose <b>DIAL FT</b>. All changes are saved in the device, so they work on every computer without this page.",
       general: "General", firmware: "Device firmware", theme: "Theme", computer: "Computer", winOpt: "Windows / Linux (Ctrl)", macOpt: "macOS (Cmd)",
       bri: "Screen brightness", rgb: "RGB ring", rgbBri: "RGB brightness", focus: "Pomodoro focus (min)", brk: "Pomodoro break (min)",
-      auto: "Auto profile (with DIAL FT Helper)", clock: "Clock face when idle", standup: "Stand-up reminder", inv: "Invert scroll",
+      auto: "Auto profile (with DIAL FT Helper)", clock: "Clock face when idle", standup: "Stand-up reminder", pcSound: "Sound on the computer when time is up (with DIAL FT Helper)", inv: "Invert scroll",
       home: "Home screen", homeHint: "Untick apps you do not use - their icons disappear from DIAL FT. Settings always stays.",
       homeLay: "Home screen - desktops", layHint: "Group apps on desktops your way: drag an icon to another desktop or between icons (or click an icon, then click where it should go). Up to {p} desktops with {n} icons each; click a desktop name to rename it. Icons in Hidden do not appear on DIAL FT - Settings always stays.",
       addPage: "+ Add desktop", resetLay: "Restore default layout", hiddenT: "Hidden", hiddenEmpty: "Drag icons here to hide them",
@@ -74,7 +74,7 @@
       introT: "Witaj", intro: "Podłącz DIAL FT kablem USB i kliknij <b>Połącz DIAL FT</b>. W okienku wybierz <b>DIAL FT</b>. Zmiany zapisują się w urządzeniu, więc działają na każdym komputerze, także bez tej strony.",
       general: "Ogólne", firmware: "Oprogramowanie urządzenia", theme: "Motyw", computer: "Komputer", winOpt: "Windows / Linux (Ctrl)", macOpt: "macOS (Cmd)",
       bri: "Jasność ekranu", rgb: "Pierścień RGB", rgbBri: "Jasność RGB", focus: "Pomodoro - skupienie (min)", brk: "Pomodoro - przerwa (min)",
-      auto: "Automatyczny profil (z DIAL FT Helper)", clock: "Zegar w spoczynku", standup: "Przypomnienie o przerwie", inv: "Odwróć przewijanie",
+      auto: "Automatyczny profil (z DIAL FT Helper)", clock: "Zegar w spoczynku", standup: "Przypomnienie o przerwie", pcSound: "Dźwięk na komputerze, gdy minie czas (z DIAL FT Helper)", inv: "Odwróć przewijanie",
       home: "Ekran HOME", homeHint: "Odznacz aplikacje, których nie używasz - ich ikony znikną z DIAL FT. Ustawienia zostają zawsze.",
       homeLay: "Ekran HOME - pulpity", layHint: "Pogrupuj aplikacje na pulpitach po swojemu: przeciągnij ikonę na inny pulpit albo między ikony (albo kliknij ikonę, a potem miejsce, gdzie ma trafić). Do {p} pulpitów po {n} ikon; kliknij nazwę pulpitu, żeby ją zmienić. Ikony w sekcji Ukryte nie pojawiają się na DIAL FT - Ustawienia zostają zawsze.",
       addPage: "+ Dodaj pulpit", resetLay: "Przywróć domyślny układ", hiddenT: "Ukryte", hiddenEmpty: "Przeciągnij tu ikony, żeby je ukryć",
@@ -295,6 +295,7 @@
               <label class="switch"><input id="s_autoSwitch" type="checkbox">${L.auto}</label>
               <label class="switch"><input id="s_clock" type="checkbox">${L.clock}</label>
               <label class="switch"><input id="s_standup" type="checkbox">${L.standup}</label>
+              <label class="switch" id="s_pcSound_w"><input id="s_pcSound" type="checkbox">${L.pcSound}</label>
               <label class="switch"><input id="s_scrollInv" type="checkbox">${L.inv}</label>
             </div></section>
           <section id="midisec" class="hidden"><h2>${L.midiT}</h2><p class="hint">${L.midiHint}</p>
@@ -518,6 +519,8 @@
       $("s_host").value = s.host;
       for (const k of ["bri", "rgbBri", "focus", "break"]) $("s_" + k).value = s[k];
       for (const k of ["autoSwitch", "clock", "standup", "scrollInv"]) $("s_" + k).checked = !!s[k];
+      $("s_pcSound_w").classList.toggle("hidden", s.pcSound == null);
+      $("s_pcSound").checked = !!s.pcSound;
       $("s_bri_v").textContent = s.bri + "%"; $("s_rgbBri_v").textContent = s.rgbBri + "%";
       const hasMidi = s.midiCh != null;
       $("midisec").classList.toggle("hidden", !hasMidi);
@@ -772,7 +775,7 @@
         this.$("m_" + k).addEventListener("input", e => { this.cfg.settings[k] = lim(e.target.value, lo, hi); this.markDirty(); });
       for (const k of ["midiRel", "midiClickNote"])
         this.$("m_" + k).addEventListener("input", e => { this.cfg.settings[k] = e.target.value === "1"; this.markDirty(); });
-      for (const k of ["autoSwitch", "clock", "standup", "scrollInv"])
+      for (const k of ["autoSwitch", "clock", "standup", "scrollInv", "pcSound"])
         this.$("s_" + k).addEventListener("change", e => { this.cfg.settings[k] = e.target.checked; this.markDirty(); });
     }
 
@@ -790,7 +793,7 @@
     }
 
     loadDemo() {   // podglad bez urzadzenia (atrybut demo)
-      this.cfg = this.normalize({ fw: "DFTv1.5 (demo)", cfgv: 2, maxSteps: 6, settings: { theme: 7, host: 1, bri: 80, scrollInv: false, rgbMode: 1, rgbBri: 60, break: 5, focus: 25, autoSwitch: true, clock: true, standup: true, midiCh: 1, midiCcA: 20, midiCcB: 21, midiRel: false, midiClickNote: true, midiNote: 60, midiSens: 1 },
+      this.cfg = this.normalize({ fw: "DFTv1.5 (demo)", cfgv: 2, maxSteps: 6, settings: { theme: 7, host: 1, bri: 80, scrollInv: false, rgbMode: 1, rgbBri: 60, break: 5, focus: 25, autoSwitch: true, clock: true, standup: true, pcSound: true, midiCh: 1, midiCcA: 20, midiCcB: 21, midiRel: false, midiClickNote: true, midiNote: 60, midiSens: 1 },
         themes: ["Ocean", "Amber", "Mint", "Violet", "Rose", "Mono", "Color", "FalbaTech"], rgbModes: ["Off", "Follow", "Ambient", "Breathe", "Rainbow"],
         pages: ["EVERYDAY", "CREATIVE", "DESIGN", "SYSTEM", "CUSTOM", "CUSTOM 2"],
         apps: [{ i: 0, name: "Pomodoro", page: 0, hidden: 0 }, { i: 1, name: "Smart Scroll", page: 0, hidden: 0 }, { i: 2, name: "Volume", page: 0, hidden: 0 }, { i: 4, name: "Spotify", page: 0, hidden: 0 },
