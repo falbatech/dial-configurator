@@ -61,7 +61,7 @@
       helperT: "DIAL FT Helper (optional)", helperHint: "A small background program that adds automatic profile when you switch apps, Spotify cover art and song title, and the clock. Everything else works without it.",
       download: "Download for macOS", downloadWin: "Download for Windows", downloadLinux: "Download for Linux (Ubuntu, Mint, Debian)", helperHow: "macOS: open the file and double-click DIAL FT Helper - it installs itself (if macOS says it cannot verify the app: System Settings → Privacy & Security → Open Anyway). Windows: run the installer (if Windows SmartScreen appears: More info → Run anyway). Linux: double-click the .deb file and click Install.", linuxOther: "Other Linux distributions (.zip)", guideT: "User guide", guideHint: "Controls, every profile, the configurator, updates and troubleshooting.",
       noChanges: "All changes saved", unsaved: "Unsaved changes", undo: "Undo", save: "Save to DIAL FT",
-      icons: ["Speaker", "Arrows", "Color wheels", "Chip", "Timer", "Sliders", "Brush", "Photo", "Media", "Arrows (horizontal)", "Pixel grid", "Spotify", "Microphone", "Monitor", "Film", "Clapper", "Figma dots", "Orbit", "Cube", "Star", "MIDI", "Hourglass", "Stopwatch"],
+      icons: ["Speaker", "Arrows", "Color wheels", "Chip", "Timer", "Sliders", "Brush", "Photo", "Media", "Arrows (horizontal)", "Pixel grid", "Spotify", "Microphone", "Monitor", "Film", "Clapper", "Figma dots", "Orbit", "Cube", "Star", "MIDI", "Hourglass", "Stopwatch", "Claude", "Codex (terminal)", "Panels (herdr)", "Tiled windows", "Video camera (iMovie)"],
       media: ["Play / Pause", "Next track", "Previous track", "Volume up", "Volume down", "Mute", "Brightness up", "Brightness down"],
     },
     pl: {
@@ -109,7 +109,7 @@
       helperT: "DIAL FT Helper (opcjonalny)", helperHint: "Mały program w tle: automatyczna zmiana profilu przy przełączaniu aplikacji, okładki i tytuły Spotify oraz zegar. Wszystko inne działa bez niego.",
       download: "Pobierz na macOS", downloadWin: "Pobierz na Windows", downloadLinux: "Pobierz na Linux (Ubuntu, Mint, Debian)", helperHow: "macOS: otwórz plik i kliknij dwa razy DIAL FT Helper - sam się zainstaluje (jeśli macOS napisze, że nie może zweryfikować aplikacji: Ustawienia systemowe → Prywatność i ochrona → Otwórz mimo to). Windows: uruchom instalator (jeśli pojawi się filtr SmartScreen: Więcej informacji → Uruchom mimo to). Linux: kliknij dwa razy plik .deb i wybierz Zainstaluj.", linuxOther: "Inne dystrybucje Linuksa (.zip)", guideT: "Instrukcja obsługi", guideHint: "Sterowanie, wszystkie profile, konfigurator, aktualizacje i rozwiązywanie problemów.",
       noChanges: "Wszystko zapisane", unsaved: "Niezapisane zmiany", undo: "Cofnij", save: "Zapisz w DIAL FT",
-      icons: ["Głośnik", "Strzałki", "Koła kolorów", "Układ scalony", "Minutnik", "Suwaki", "Pędzel", "Zdjęcie", "Multimedia", "Strzałki (poziomo)", "Siatka pikseli", "Spotify", "Mikrofon", "Monitor", "Taśma filmowa", "Klaps", "Kropki Figma", "Orbita", "Sześcian", "Gwiazda", "MIDI", "Klepsydra", "Stoper"],
+      icons: ["Głośnik", "Strzałki", "Koła kolorów", "Układ scalony", "Minutnik", "Suwaki", "Pędzel", "Zdjęcie", "Multimedia", "Strzałki (poziomo)", "Siatka pikseli", "Spotify", "Mikrofon", "Monitor", "Taśma filmowa", "Klaps", "Kropki Figma", "Orbita", "Sześcian", "Gwiazda", "MIDI", "Klepsydra", "Stoper", "Claude", "Codex (terminal)", "Panele (herdr)", "Okna kafelkami", "Kamera (iMovie)"],
       media: ["Odtwarzaj / pauza", "Następny utwór", "Poprzedni utwór", "Głośniej", "Ciszej", "Wycisz", "Jaśniej", "Ciemniej"],
     },
   };
@@ -152,6 +152,12 @@
       { name: "LINES", l: K(UP, AL), r: K(DOWN, AL), tap: K(47, M) },
       { name: "ZOOM", l: K(45, M), r: K(61, M), tap: K(98, M) },
       { name: "HISTORY", l: K(122, M), r: K(122, M | SH), tap: K(115, M) }] },
+    // CamBam (CAM do frezarek CNC, Windows): zawsze Ctrl (8), PgUp/PgDn zoom, strzalki pan, Home reset widoku
+    { name: "CamBam (CNC)", icon: 18, color: "#f5a623", app: "CamBam", modes: [
+      { name: "ZOOM", l: K(PGUP), r: K(PGDN), tap: K(0xD2) },
+      { name: "PAN X", l: K(LEFT), r: K(RIGHT), tap: K(0xD2) },
+      { name: "PAN Y", l: K(DOWN), r: K(UP), tap: K(0xD2) },
+      { name: "CAM", l: K(122, 8), r: K(121, 8), tap: K(116, 8) }] },
     { name: "Signature", icon: 19, color: "#518751", app: "", texts: ["Best regards,", "Your name"], modes: [
       { name: "TYPE", l: [[6, 0, 0]], r: [[6, 0, 0], [1, 0, 0xB0], [6, 0, 1]], tap: [[6, 0, 0], [1, 0, 0xB0], [6, 0, 1]] }] },
   ];
