@@ -272,7 +272,9 @@
       const bust = u => u ? u + (u.includes("?") ? "&" : "?") + "h=" + Math.floor(Date.now() / 36e5) : u;
       const manifest = bust(a("manifest")), helper = a("helper"), gpl = a("guide-pl"), gen = a("guide-en");
       // instalatory: z folderu, w ktorym lezy plik z atrybutu "helper" (stary embed wskazuje ...-mac.zip - dziala bez zmian)
-      const hdir = helper ? helper.slice(0, helper.lastIndexOf("/") + 1) : "";
+      // jsDelivr nie podaje plikow .exe (403) i ma limit 20 MB - instalatory pobieramy prosto z GitHuba
+      const hdir = helper ? helper.slice(0, helper.lastIndexOf("/") + 1)
+        .replace(/^https:\/\/cdn\.jsdelivr\.net\/gh\/([^/]+)\/([^/@]+)@([^/]+)\//, "https://raw.githubusercontent.com/$1/$2/$3/") : "";
       const helperMac = hdir && /-mac\.zip$/.test(helper) ? hdir + "DIAL-FT-Helper.dmg" : helper;
       const helperWin = a("helper-win") || (hdir ? hdir + "DIAL-FT-Helper-Setup.exe" : "");
       const helperLinux = a("helper-linux") || (hdir ? hdir + "DIAL-FT-Helper-linux.deb" : "");
