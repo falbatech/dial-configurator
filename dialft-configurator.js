@@ -353,6 +353,7 @@
       if (manifest) {
         if (!customElements.get("esp-web-install-button")) { const s = document.createElement("script"); s.type = "module"; s.src = ESP_WEB_TOOLS; document.head.appendChild(s); }
         this.$("prepare").addEventListener("click", () => this.prepareUpdate());
+        this.$("ewt").addEventListener("click", () => { if (this.port) this.disconnect(true); }, true);   // instalator otwiera port sam
         fetch(manifest).then(r => r.json()).then(m => { this.fwLatest = m.version; this.$("fwinfo").textContent = L.available + " " + m.version; this.updBanner(); }).catch(() => {});
         this.$("updgo").addEventListener("click", () => this.$("updsec").scrollIntoView({ behavior: "smooth" }));
       }
@@ -385,10 +386,15 @@
       }
     }
     async disconnect(keepStatus) {
+      // port zerowany NAJPIERW: inaczej readLoop po cancel() bierze nowy reader i port zostaje otwarty
+      // ("The port is already open" przy aktualizacji)
+      const p = this.port; this.port = null;
       try { if (this.reader) await this.reader.cancel(); } catch (e) {}
       try { if (this.writer) this.writer.releaseLock(); } catch (e) {}
-      try { if (this.port) await this.port.close(); } catch (e) {}
-      this.port = this.reader = this.writer = null;
+      for (let i = 0; p && i < 10; i++) {
+        try { await p.close(); break; } catch (e) { if (!p.readable && !p.writable) break; await new Promise(r => setTimeout(r, 50)); }
+      }
+      this.reader = this.writer = null;
       this.$("connect").textContent = this.L.connect;
       if (!keepStatus) this.setStatus(this.L.notConnected);
     }
@@ -410,7 +416,7 @@
           }
         } catch (e) { break; } finally { try { this.reader.releaseLock(); } catch (e) {} }
       }
-      if (this.port) { this.setStatus(this.L.lost, "err"); this.port = null; this.$("connect").textContent = this.L.connect; }
+      if (this.port) { const p = this.port; this.port = null; try { await p.close(); } catch (e) {} this.setStatus(this.L.lost, "err"); this.$("connect").textContent = this.L.connect; }
     }
     send(line) { return this.writer.write(new TextEncoder().encode(line + "\n")); }
     request(line, match, timeout = 3000) {
