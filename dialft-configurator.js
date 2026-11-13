@@ -52,7 +52,7 @@
       seqHint: "Each action can be a macro: up to {n} steps run one after another.",
       clockT: "Clock", clockHint: "DIAL FT has no battery clock. This page sets the time when you connect; DIAL FT Helper keeps it updated.",
       setClock: "Set clock now", clockSet: "Clock set to",
-      updT: "Firmware update", updHint: "Your settings and profiles stay on the device.",
+      updT: "Firmware update", updNew: "New DIAL FT update available:", updHave: "you have", updGo: "Update now", updHint: "Your settings and profiles stay on the device.",
       upd1: "Click <b>1. Prepare</b> and choose DIAL FT. The screen goes dark: it is now in update mode.",
       upd2: "Click <b>2. Install update</b> and choose the port that appears (<i>USB JTAG/serial debug unit</i>).",
       upd3: "When it says it is done, unplug and plug in DIAL FT again.",
@@ -100,7 +100,7 @@
       seqHint: "Każda akcja może być makrem: do {n} kroków wykonywanych po kolei.",
       clockT: "Zegar", clockHint: "DIAL FT nie ma zegara z baterią. Ta strona ustawia godzinę przy połączeniu, a DIAL FT Helper aktualizuje ją na bieżąco.",
       setClock: "Ustaw zegar teraz", clockSet: "Ustawiono godzinę",
-      updT: "Aktualizacja oprogramowania", updHint: "Ustawienia i Twoje profile zostają w urządzeniu.",
+      updT: "Aktualizacja oprogramowania", updNew: "Dostępna nowa aktualizacja DIAL FT:", updHave: "masz", updGo: "Aktualizuj teraz", updHint: "Ustawienia i Twoje profile zostają w urządzeniu.",
       upd1: "Kliknij <b>1. Przygotuj</b> i wybierz DIAL FT. Ekran zgaśnie - urządzenie jest w trybie aktualizacji.",
       upd2: "Kliknij <b>2. Zainstaluj aktualizację</b> i wybierz port, który się pojawi (<i>USB JTAG/serial debug unit</i>).",
       upd3: "Po komunikacie o zakończeniu odłącz i podłącz DIAL FT.",
@@ -289,6 +289,7 @@
       <div class="wrap ${a("theme") === "dark" ? "dark" : ""}">
         <div class="top"><div class="logo"></div><div><h1>${L.title}</h1><div class="sub">${L.sub}</div></div>
           <div class="grow"></div><span id="status" class="status">${L.notConnected}</span><button id="connect">${L.connect}</button></div>
+        <section id="updbanner" class="warnbox hidden"><p style="margin:0"><b id="updtxt"></b> <button id="updgo">${L.updGo}</button></p></section>
         <section id="nosupport" class="warnbox hidden"><h2>${L.noSupportT}</h2><p class="hint" style="color:inherit">${L.noSupport}</p></section>
         <section id="intro"><h2>${L.introT}</h2><p class="hint">${L.intro}</p></section>
         <div id="ui" class="hidden">
@@ -328,7 +329,7 @@
           <section><h2>${L.clockT}</h2><p class="hint">${L.clockHint}</p><button id="synctime" class="ghost">${L.setClock}</button> <span id="timeinfo" class="muted"></span></section>
           <div id="savebar" class="savebar"><span id="dirty" class="muted"></span><button id="revert" class="ghost">${L.undo}</button><button id="save">${L.save}</button></div>
         </div>
-        ${manifest ? `<section><h2>${L.updT}</h2><p class="hint">${L.updHint}</p><ol><li>${L.upd1}</li><li>${L.upd2}</li><li>${L.upd3}</li></ol>
+        ${manifest ? `<section id="updsec"><h2>${L.updT}</h2><p class="hint">${L.updHint}</p><ol><li>${L.upd1}</li><li>${L.upd2}</li><li>${L.upd3}</li></ol>
           <div class="row"><button id="prepare" class="ghost">${L.prepare}</button>
           <esp-web-install-button id="ewt" manifest="${manifest}"><button slot="activate">${L.install}</button><span slot="unsupported" class="muted">${L.noSupport}</span></esp-web-install-button>
           <span id="fwinfo" class="muted"></span></div></section>` : ""}
@@ -352,7 +353,8 @@
       if (manifest) {
         if (!customElements.get("esp-web-install-button")) { const s = document.createElement("script"); s.type = "module"; s.src = ESP_WEB_TOOLS; document.head.appendChild(s); }
         this.$("prepare").addEventListener("click", () => this.prepareUpdate());
-        fetch(manifest).then(r => r.json()).then(m => { this.$("fwinfo").textContent = L.available + " " + m.version; }).catch(() => {});
+        fetch(manifest).then(r => r.json()).then(m => { this.fwLatest = m.version; this.$("fwinfo").textContent = L.available + " " + m.version; this.updBanner(); }).catch(() => {});
+        this.$("updgo").addEventListener("click", () => this.$("updsec").scrollIntoView({ behavior: "smooth" }));
       }
       if (this.hasAttribute("demo")) this.loadDemo();
     }
@@ -524,9 +526,19 @@
       for (const c of kids) if (c != null) e.append(c);
       return e;
     }
+    // "DFTv1.5.1" -> [1,5,1]; nowsza wersja w manifescie = baner z aktualizacja
+    verNum(v) { return String(v || "").replace(/^[^\d]*/, "").split(/[^\d]+/).filter(Boolean).map(Number); }
+    verLess(a, b) { const x = this.verNum(a), y = this.verNum(b); for (let i = 0; i < Math.max(x.length, y.length); i++) { const d = (x[i] || 0) - (y[i] || 0); if (d) return d < 0; } return false; }
+    updBanner() {
+      const b = this.$("updbanner"); if (!b) return;
+      const fw = this.cfg && this.cfg.fw, show = !!(fw && this.fwLatest && !/demo/.test(fw) && this.verLess(fw, this.fwLatest));
+      b.classList.toggle("hidden", !show);
+      if (show) this.$("updtxt").textContent = `${this.L.updNew} ${this.fwLatest} (${this.L.updHave} ${fw})`;
+    }
     render() {
       const s = this.cfg.settings, el = this.el.bind(this), $ = this.$.bind(this);
       $("fw").textContent = this.cfg.fw;
+      this.updBanner();
       $("s_theme").replaceChildren(...this.cfg.themes.map((t, i) => el("option", { value: i, selected: i === s.theme }, t)));
       $("s_rgbMode").replaceChildren(...this.cfg.rgbModes.map((t, i) => el("option", { value: i, selected: i === s.rgbMode }, t)));
       $("s_host").value = s.host;
