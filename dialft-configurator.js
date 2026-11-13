@@ -58,7 +58,7 @@
       upd3: "When it says it is done, unplug and plug in DIAL FT again.",
       prepare: "1. Prepare", install: "2. Install update", available: "Available:", prepared: "DIAL FT is in update mode. Now click 2. Install update.",
       cancelled: "Cancelled.",
-      helperT: "DIAL FT Helper (optional)", helperHint: "A small background program that adds automatic profile when you switch apps, Spotify cover art and song title, and the clock. Everything else works without it.",
+      helperT: "DIAL FT Helper (optional)", helperNew: "New Helper version (macOS 1.7.1, Linux 1.3.1): fixes firmware updates when the Helper is running. If you already use the Helper, download and install it again.", helperHint: "A small background program that adds automatic profile when you switch apps, Spotify cover art and song title, and the clock. Everything else works without it.",
       download: "Download for macOS", downloadWin: "Download for Windows", downloadLinux: "Download for Linux (Ubuntu, Mint, Debian)", helperHow: "macOS: open the file and double-click DIAL FT Helper - it installs itself (if macOS says it cannot verify the app: System Settings → Privacy & Security → Open Anyway). Windows: run the installer (if Windows SmartScreen appears: More info → Run anyway). Linux: double-click the .deb file and click Install.", linuxOther: "Other Linux distributions (.zip)", guideT: "User guide", guideHint: "Controls, every profile, the configurator, updates and troubleshooting.",
       noChanges: "All changes saved", unsaved: "Unsaved changes", undo: "Undo", save: "Save to DIAL FT",
       icons: ["Speaker", "Arrows", "Color wheels", "Chip", "Timer", "Sliders", "Brush", "Photo", "Media", "Arrows (horizontal)", "Pixel grid", "Spotify", "Microphone", "Monitor", "Film", "Clapper", "Figma dots", "Orbit", "Cube", "Star", "MIDI", "Hourglass", "Stopwatch", "Claude", "Codex (terminal)", "Panels (herdr)", "Tiled windows", "Video camera (iMovie)"],
@@ -106,7 +106,7 @@
       upd3: "Po komunikacie o zakończeniu odłącz i podłącz DIAL FT.",
       prepare: "1. Przygotuj", install: "2. Zainstaluj aktualizację", available: "Dostępna:", prepared: "DIAL FT jest w trybie aktualizacji. Kliknij 2. Zainstaluj aktualizację.",
       cancelled: "Anulowano.",
-      helperT: "DIAL FT Helper (opcjonalny)", helperHint: "Mały program w tle: automatyczna zmiana profilu przy przełączaniu aplikacji, okładki i tytuły Spotify oraz zegar. Wszystko inne działa bez niego.",
+      helperT: "DIAL FT Helper (opcjonalny)", helperNew: "Nowa wersja Helpera (macOS 1.7.1, Linux 1.3.1): naprawia aktualizację firmware przy włączonym Helperze. Jeśli już używasz Helpera, pobierz go i zainstaluj ponownie.", helperHint: "Mały program w tle: automatyczna zmiana profilu przy przełączaniu aplikacji, okładki i tytuły Spotify oraz zegar. Wszystko inne działa bez niego.",
       download: "Pobierz na macOS", downloadWin: "Pobierz na Windows", downloadLinux: "Pobierz na Linux (Ubuntu, Mint, Debian)", helperHow: "macOS: otwórz plik i kliknij dwa razy DIAL FT Helper - sam się zainstaluje (jeśli macOS napisze, że nie może zweryfikować aplikacji: Ustawienia systemowe → Prywatność i ochrona → Otwórz mimo to). Windows: uruchom instalator (jeśli pojawi się filtr SmartScreen: Więcej informacji → Uruchom mimo to). Linux: kliknij dwa razy plik .deb i wybierz Zainstaluj.", linuxOther: "Inne dystrybucje Linuksa (.zip)", guideT: "Instrukcja obsługi", guideHint: "Sterowanie, wszystkie profile, konfigurator, aktualizacje i rozwiązywanie problemów.",
       noChanges: "Wszystko zapisane", unsaved: "Niezapisane zmiany", undo: "Cofnij", save: "Zapisz w DIAL FT",
       icons: ["Głośnik", "Strzałki", "Koła kolorów", "Układ scalony", "Minutnik", "Suwaki", "Pędzel", "Zdjęcie", "Multimedia", "Strzałki (poziomo)", "Siatka pikseli", "Spotify", "Mikrofon", "Monitor", "Taśma filmowa", "Klaps", "Kropki Figma", "Orbita", "Sześcian", "Gwiazda", "MIDI", "Klepsydra", "Stoper", "Claude", "Codex (terminal)", "Panele (herdr)", "Okna kafelkami", "Kamera (iMovie)"],
@@ -333,7 +333,7 @@
           <div class="row"><button id="prepare" class="ghost">${L.prepare}</button>
           <esp-web-install-button id="ewt" manifest="${manifest}"><button slot="activate">${L.install}</button><span slot="unsupported" class="muted">${L.noSupport}</span></esp-web-install-button>
           <span id="fwinfo" class="muted"></span></div></section>` : ""}
-        ${helper ? `<section><h2>${L.helperT}</h2><p class="hint">${L.helperHint}</p><div class="row">
+        ${helper ? `<section><h2>${L.helperT}</h2><p class="hint">${L.helperHint}</p><p class="hint"><b>${L.helperNew}</b></p><div class="row">
           <a class="btn" href="${helperMac}">${L.download}</a>
           ${helperWin ? `<a class="btn" href="${helperWin}">${L.downloadWin}</a>` : ""}
           ${helperLinux ? `<a class="btn" href="${helperLinux}">${L.downloadLinux}</a>` : ""}</div>
