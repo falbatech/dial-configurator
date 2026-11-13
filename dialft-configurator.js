@@ -353,7 +353,7 @@
       if (manifest) {
         if (!customElements.get("esp-web-install-button")) { const s = document.createElement("script"); s.type = "module"; s.src = ESP_WEB_TOOLS; document.head.appendChild(s); }
         this.$("prepare").addEventListener("click", () => this.prepareUpdate());
-        this.$("ewt").addEventListener("click", () => { if (this.port) this.disconnect(true); }, true);   // instalator otwiera port sam
+        this.$("ewt").addEventListener("click", () => this.freePorts(), true);   // instalator otwiera port sam - wszystkie nasze porty musza byc zamkniete
         fetch(manifest).then(r => r.json()).then(m => { this.fwLatest = m.version; this.$("fwinfo").textContent = L.available + " " + m.version; this.updBanner(); }).catch(() => {});
         this.$("updgo").addEventListener("click", () => this.$("updsec").scrollIntoView({ behavior: "smooth" }));
       }
@@ -811,6 +811,14 @@
     }
 
     // ------------------------------------------------------------ aktualizacja: 1200 bodow -> bootloader
+    async freePorts() {   // zamyka polaczenie konfiguratora i kazdy inny port tej strony, ktory zostal otwarty (np. po "1. Przygotuj")
+      if (this.port) await this.disconnect(true);
+      try {
+        for (const p of await navigator.serial.getPorts()) {
+          if (p.readable || p.writable) { try { await p.close(); } catch (e) {} }
+        }
+      } catch (e) {}
+    }
     async prepareUpdate() {
       try {
         if (this.port) await this.disconnect(true);
