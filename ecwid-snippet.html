@@ -1,4 +1,4 @@
-<!-- DIAL FT Configurator (DFTv1.6) - wklej w Ecwid: Osadz kod / kod wlasny -->
+<!-- DIAL FT Configurator (DFTv1.6.1) - wklej w Ecwid: Osadz kod / kod wlasny -->
 <dialft-configurator theme="light" lang="auto"></dialft-configurator>
 <script>
 /* DIAL FT Configurator - komponent <dialft-configurator> (FalbaTech).
@@ -27,7 +27,7 @@
       noSupportT: "Open this page in Chrome or Edge on a computer",
       noSupport: "Talking to DIAL FT over USB works in Google Chrome or Microsoft Edge on macOS, Windows or Linux. Safari, Firefox and phones cannot do it.",
       introT: "Welcome", intro: "Plug in DIAL FT with the USB cable and click <b>Connect DIAL FT</b>. In the window that opens choose <b>DIAL FT</b>. All changes are saved in the device, so they work on every computer without this page.",
-      general: "General", firmware: "Device firmware", theme: "Theme", computer: "Computer", winOpt: "Windows / Linux (Ctrl)", macOpt: "macOS (Cmd)",
+      general: "General", firmware: "Device firmware", theme: "Theme", computer: "Computer", winOpt: "Windows / Linux (Ctrl)", macOpt: "macOS (Cmd)", iosOpt: "iPhone / iPad (scroll with arrow keys)", andOpt: "Android (scroll with arrow keys)",
       bri: "Screen brightness", rgb: "RGB ring", rgbBri: "RGB brightness", focus: "Pomodoro focus (min)", brk: "Pomodoro break (min)",
       auto: "Auto profile (with DIAL FT Helper)", clock: "Clock face when idle", standup: "Stand-up reminder", pcSound: "Sound on the computer when time is up (with DIAL FT Helper)", inv: "Invert scroll",
       home: "Home screen", homeHint: "Untick apps you do not use - their icons disappear from DIAL FT. Settings always stays.",
@@ -75,7 +75,7 @@
       noSupportT: "Otwórz tę stronę w Chrome lub Edge na komputerze",
       noSupport: "Połączenie z DIAL FT przez USB działa w Google Chrome lub Microsoft Edge na macOS, Windows lub Linux. Safari, Firefox i telefony tego nie potrafią.",
       introT: "Witaj", intro: "Podłącz DIAL FT kablem USB i kliknij <b>Połącz DIAL FT</b>. W okienku wybierz <b>DIAL FT</b>. Zmiany zapisują się w urządzeniu, więc działają na każdym komputerze, także bez tej strony.",
-      general: "Ogólne", firmware: "Oprogramowanie urządzenia", theme: "Motyw", computer: "Komputer", winOpt: "Windows / Linux (Ctrl)", macOpt: "macOS (Cmd)",
+      general: "Ogólne", firmware: "Oprogramowanie urządzenia", theme: "Motyw", computer: "Komputer", winOpt: "Windows / Linux (Ctrl)", macOpt: "macOS (Cmd)", iosOpt: "iPhone / iPad (przewijanie strzałkami)", andOpt: "Android (przewijanie strzałkami)",
       bri: "Jasność ekranu", rgb: "Pierścień RGB", rgbBri: "Jasność RGB", focus: "Pomodoro - skupienie (min)", brk: "Pomodoro - przerwa (min)",
       auto: "Automatyczny profil (z DIAL FT Helper)", clock: "Zegar w spoczynku", standup: "Przypomnienie o przerwie", pcSound: "Dźwięk na komputerze, gdy minie czas (z DIAL FT Helper)", inv: "Odwróć przewijanie",
       home: "Ekran HOME", homeHint: "Odznacz aplikacje, których nie używasz - ich ikony znikną z DIAL FT. Ustawienia zostają zawsze.",
@@ -299,7 +299,7 @@
           <section><h2>${L.general}</h2><p class="hint">${L.firmware}: <b id="fw">-</b></p>
             <div class="grid">
               <label class="field">${L.theme}<select id="s_theme"></select></label>
-              <label class="field">${L.computer}<select id="s_host"><option value="0">${L.winOpt}</option><option value="1">${L.macOpt}</option></select></label>
+              <label class="field">${L.computer}<select id="s_host"><option value="0">${L.winOpt}</option><option value="1">${L.macOpt}</option><option value="2">${L.iosOpt}</option><option value="3">${L.andOpt}</option></select></label>
               <label class="field">${L.bri}<span><input id="s_bri" type="range" min="10" max="100" step="5"> <span id="s_bri_v" class="muted"></span></span></label>
               <label class="field">${L.rgb}<select id="s_rgbMode"></select></label>
               <label class="field">${L.rgbBri}<span><input id="s_rgbBri" type="range" min="10" max="100" step="5"> <span id="s_rgbBri_v" class="muted"></span></span></label>
